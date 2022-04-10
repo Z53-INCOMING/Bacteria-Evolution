@@ -1,0 +1,53 @@
+[gd_scene format=2]
+
+[node name="CustomBacteria" type="CanvasLayer"]
+layer = 3
+
+[node name="scale" type="SpinBox" parent="."]
+margin_left = 65.0
+margin_top = 44.4433
+margin_right = 139.0
+margin_bottom = 68.4433
+rect_scale = Vector2( 0.4, 0.4 )
+min_value = 0.2
+max_value = 2.0
+step = 0.1
+value = 1.0
+prefix = "scale"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gestation" type="SpinBox" parent="."]
+margin_left = 97.6992
+margin_top = 44.6208
+margin_right = 204.699
+margin_bottom = 68.6208
+rect_scale = Vector2( 0.4, 0.4 )
+min_value = 5.0
+max_value = 30.0
+value = 5.0
+prefix = "gestation"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="toxic" type="CheckBox" parent="."]
+margin_left = 141.306
+margin_top = 37.3099
+margin_right = 200.306
+margin_bottom = 61.3099
+text = "toxic"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oviparous" type="CheckBox" parent="."]
+margin_left = 193.974
+margin_top = 37.3099
+margin_right = 283.974
+margin_bottom = 61.3099
+text = "oviparous"
+__meta__ = {
+"_edit_use_anchors_": false
+}

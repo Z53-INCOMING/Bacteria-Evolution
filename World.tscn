@@ -1,0 +1,649 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://World.gd" type="Script" id=1]
+[ext_resource path="res://Camera2D.gd" type="Script" id=2]
+[ext_resource path="res://Helvetica.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://bacteria.png" type="Texture" id=4]
+[ext_resource path="res://pixelarrow.png" type="Texture" id=5]
+[ext_resource path="res://visibleSprite.png" type="Texture" id=6]
+[ext_resource path="res://foodPellet.png" type="Texture" id=7]
+[ext_resource path="res://bacteriaEgg.png" type="Texture" id=8]
+[ext_resource path="res://Polygon2D.gd" type="Script" id=9]
+[ext_resource path="res://Borders.gd" type="Script" id=10]
+[ext_resource path="res://text.tres" type="DynamicFont" id=11]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 5.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 14
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 11
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 9
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 15
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="Environment" id=8]
+background_mode = 4
+glow_enabled = true
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="World" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+pause_mode = 2
+current = true
+zoom = Vector2( 3, 3 )
+script = ExtResource( 2 )
+
+[node name="mouse" type="Area2D" parent="Camera2D"]
+pause_mode = 2
+z_index = 12
+monitorable = false
+collision_layer = 0
+collision_mask = 3
+
+[node name="radius" type="CollisionShape2D" parent="Camera2D/mouse"]
+pause_mode = 2
+shape = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D/mouse"]
+color = Color( 1, 1, 1, 0.12549 )
+polygon = PoolVector2Array( -15.9763, 0.0369928, -15.4745, 4.13965, -13.8633, 8.0134, -11.3014, 11.3061, -8.03509, 13.868, -4.11732, 15.4616, 0.0293541, 16.0338, 4.14961, 15.4528, 8.01456, 13.8856, 11.3601, 11.3237, 13.9484, 7.91655, 15.4715, 4.13084, 16.0174, -0.00702524, 15.4539, -4.11848, 13.8692, -8.01864, 11.3072, -11.3554, 8.00576, -13.8381, 4.15842, -15.458, 0.0205488, -15.995, -4.13493, -15.4492, -8.01748, -13.8469, -11.3278, -11.3289, -13.8721, -7.96581, -15.4216, -4.21531 )
+script = ExtResource( 9 )
+
+[node name="UI" type="CanvasLayer" parent="Camera2D"]
+layer = 2
+
+[node name="visible" type="Node2D" parent="Camera2D/UI"]
+
+[node name="childCount" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 42.854
+margin_right = 260.601
+margin_bottom = 56.854
+custom_fonts/font = ExtResource( 11 )
+text = "Children:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scale" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 56.5585
+margin_right = 260.601
+margin_bottom = 70.5585
+custom_fonts/font = ExtResource( 11 )
+text = "Scale:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gestation" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 68.134
+margin_right = 260.601
+margin_bottom = 82.134
+custom_fonts/font = ExtResource( 11 )
+text = "Gestation:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="parent" type="Button" parent="Camera2D/UI/visible"]
+margin_left = 230.0
+margin_top = 83.0
+margin_right = 318.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0.592157, 1, 1 )
+text = "Parent"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="parentLabel" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 270.046
+margin_top = 70.039
+margin_right = 315.046
+margin_bottom = 84.039
+custom_fonts/font = ExtResource( 11 )
+text = "Parent:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="age" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 30.278
+margin_right = 260.601
+margin_bottom = 44.278
+custom_fonts/font = ExtResource( 11 )
+text = "Age:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="food" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 16.5581
+margin_right = 260.601
+margin_bottom = 30.558
+custom_fonts/font = ExtResource( 11 )
+text = "Food:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 219.454
+margin_top = 1.38141
+margin_right = 302.454
+margin_bottom = 16.3814
+custom_fonts/font = SubResource( 3 )
+text = "Name"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.054, 59.4918 )
+rotation = -1.57079
+texture = ExtResource( 4 )
+hframes = 5
+frame = 2
+
+[node name="rightCone" type="Polygon2D" parent="Camera2D/UI/visible"]
+position = Vector2( 296.02, 39.9594 )
+color = Color( 1, 0.937255, 0, 0.435294 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone" type="Polygon2D" parent="Camera2D/UI/visible"]
+position = Vector2( 265.322, 40.2532 )
+color = Color( 0, 0.623529, 1, 0.435294 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone" type="Polygon2D" parent="Camera2D/UI/visible"]
+position = Vector2( 1.78149, -42.7068 )
+color = Color( 1, 0.141176, 0, 0.435294 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="bacteriaEgg" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 307.118, 54.3451 )
+texture = ExtResource( 8 )
+hframes = 8
+frame = 1
+
+[node name="bacteriaEgg3" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.44, 38.7439 )
+texture = ExtResource( 8 )
+hframes = 8
+frame = 1
+
+[node name="bacteriaEgg2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 277.664, 53.7877 )
+texture = ExtResource( 8 )
+hframes = 8
+frame = 1
+
+[node name="right" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 308.963, 39.2932 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="left" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 275.867, 38.836 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="front" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.485, 24.4832 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="right2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 307.321, 54.513 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="left2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 277.77, 54.1136 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="front2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.202, 38.8736 )
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="foodPellet" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 275.432, 39.1617 )
+texture = ExtResource( 7 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.891, 24.3808 )
+texture = ExtResource( 7 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet3" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 309.474, 39.4746 )
+texture = ExtResource( 7 )
+hframes = 7
+
+[node name="marked" type="CheckBox" parent="Camera2D/UI/visible"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 299.0
+margin_top = -4.0
+margin_right = 323.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="Panel" parent="Camera2D/UI"]
+visible = false
+margin_left = 100.0
+margin_top = 40.0
+margin_right = 220.0
+margin_bottom = 140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="originalTextures" type="CheckButton" parent="Camera2D/UI/menu"]
+visible = false
+margin_left = 18.2193
+margin_top = 38.5625
+margin_right = 238.219
+margin_bottom = 78.5625
+rect_scale = Vector2( 0.4, 0.4 )
+pressed = true
+text = "Original Textures"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat" type="CheckButton" parent="Camera2D/UI/menu"]
+margin_left = 18.2193
+margin_top = 2.24199
+margin_right = 238.219
+margin_bottom = 42.242
+rect_scale = Vector2( 0.4, 0.4 )
+pressed = true
+text = "Messages"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wrap" type="CheckButton" parent="Camera2D/UI/menu"]
+margin_left = 18.2193
+margin_top = 21.1944
+margin_right = 238.219
+margin_bottom = 61.1944
+rect_scale = Vector2( 0.4, 0.4 )
+pressed = true
+text = "Camera Wrap-Around"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="Button" parent="Camera2D/UI/menu"]
+margin_left = 22.4622
+margin_top = 75.0
+margin_right = 100.462
+margin_bottom = 95.0
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="bacteriaLabel" type="Label" parent="UI"]
+margin_right = 224.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 11 )
+text = "There are X bacteria."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="smart" type="Label" parent="UI"]
+margin_top = 11.3772
+margin_right = 224.0
+margin_bottom = 24.3772
+custom_fonts/font = ExtResource( 11 )
+text = "Smart:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oviparous" type="Label" parent="UI"]
+margin_top = 22.1315
+margin_right = 224.0
+margin_bottom = 35.1315
+custom_fonts/font = ExtResource( 11 )
+text = "Oviparous:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oviSmart" type="Label" parent="UI"]
+margin_top = 34.3303
+margin_right = 224.0
+margin_bottom = 47.3303
+custom_fonts/font = ExtResource( 11 )
+text = "Oviparous And Smart:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="timeLabel" type="Label" parent="UI"]
+margin_left = -0.12841
+margin_top = 46.2418
+margin_right = 133.872
+margin_bottom = 60.2418
+custom_fonts/font = ExtResource( 11 )
+text = "Sim Time: 0.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fps" type="Label" parent="UI"]
+margin_top = 58.5185
+margin_right = 52.0
+margin_bottom = 72.5185
+custom_fonts/font = ExtResource( 11 )
+text = "FPS: 60"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="message" type="RichTextLabel" parent="UI"]
+margin_top = 71.0
+margin_right = 112.0
+margin_bottom = 149.0
+custom_fonts/normal_font = SubResource( 4 )
+scroll_active = false
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="averages" type="Label" parent="UI"]
+margin_left = 204.165
+margin_top = 102.379
+margin_right = 318.165
+margin_bottom = 116.379
+custom_fonts/font = SubResource( 5 )
+text = "Averages:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lifeSpan" type="Label" parent="UI"]
+margin_left = 204.0
+margin_top = 114.379
+margin_right = 318.0
+margin_bottom = 128.379
+custom_fonts/font = SubResource( 6 )
+text = "Life Span: Unknown"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="children" type="Label" parent="UI"]
+margin_left = 54.9684
+margin_top = 124.379
+margin_right = 314.968
+margin_bottom = 138.379
+custom_fonts/font = SubResource( 6 )
+text = "Children: Unknown"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scale" type="Label" parent="UI"]
+margin_left = 55.0
+margin_top = 133.197
+margin_right = 315.0
+margin_bottom = 143.197
+custom_fonts/font = SubResource( 6 )
+text = "Scale: 1.0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gestation" type="Label" parent="UI"]
+margin_left = 55.0
+margin_top = 142.757
+margin_right = 315.0
+margin_bottom = 152.757
+custom_fonts/font = SubResource( 6 )
+text = "Gestation Period: 1.0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tick1" type="Label" parent="UI"]
+margin_left = 4.15797
+margin_top = 151.284
+margin_right = 12.158
+margin_bottom = 167.284
+custom_fonts/font = SubResource( 7 )
+text = "1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tick2" type="Label" parent="UI"]
+margin_left = 301.776
+margin_top = 151.284
+margin_right = 318.776
+margin_bottom = 167.284
+custom_fonts/font = SubResource( 7 )
+text = "4"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="speed" type="HSlider" parent="UI"]
+margin_left = 1.0
+margin_top = 163.0
+margin_right = 318.0
+margin_bottom = 179.0
+min_value = 1.0
+max_value = 4.0
+step = 0.5
+value = 1.0
+scrollable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="simDataVisible" type="Button" parent="UI"]
+visible = false
+margin_left = 2.0
+margin_top = 42.0
+margin_right = 30.0
+margin_bottom = 66.0
+icon = ExtResource( 6 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="averagesVisible" type="Button" parent="UI"]
+visible = false
+margin_left = 241.375
+margin_top = 109.749
+margin_right = 269.375
+margin_bottom = 133.749
+icon = ExtResource( 6 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="speedVisible" type="Button" parent="UI"]
+visible = false
+margin_left = 155.824
+margin_top = 145.531
+margin_right = 183.824
+margin_bottom = 169.531
+icon = ExtResource( 6 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+pause_mode = 2
+environment = SubResource( 8 )
+
+[node name="Food" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="Bacteria" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="Borders" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="RBorder2" type="ColorRect" parent="Borders"]
+margin_left = 1499.0
+margin_top = -1500.0
+margin_right = 1657.0
+margin_bottom = 1500.0
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LBorder2" type="ColorRect" parent="Borders"]
+margin_left = -1712.0
+margin_top = -1500.0
+margin_right = -1500.0
+margin_bottom = 1501.0
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TBorder2" type="ColorRect" parent="Borders"]
+margin_left = -1500.0
+margin_top = -1721.0
+margin_right = 1500.0
+margin_bottom = -1500.0
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BBorder2" type="ColorRect" parent="Borders"]
+margin_left = -1500.0
+margin_top = 1499.0
+margin_right = 1501.0
+margin_bottom = 1761.0
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LBorder" type="ColorRect" parent="Borders"]
+margin_left = -1501.0
+margin_top = -1500.0
+margin_right = -1499.0
+margin_bottom = 1501.0
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RBorder" type="ColorRect" parent="Borders"]
+margin_left = 1499.0
+margin_top = -1500.0
+margin_right = 1501.0
+margin_bottom = 1500.0
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TBorder" type="ColorRect" parent="Borders"]
+margin_left = -1500.0
+margin_top = -1500.0
+margin_right = 1500.0
+margin_bottom = -1498.0
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BBorder" type="ColorRect" parent="Borders"]
+margin_left = -1500.0
+margin_top = 1499.0
+margin_right = 1501.0
+margin_bottom = 1501.0
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="button_down" from="Camera2D/UI/visible/parent" to="Camera2D" method="_on_parent_button_down"]
+[connection signal="pressed" from="Camera2D/UI/menu/chat" to="." method="_on_chat_pressed"]
+[connection signal="button_down" from="Camera2D/UI/menu/menu" to="Camera2D" method="_on_menu_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

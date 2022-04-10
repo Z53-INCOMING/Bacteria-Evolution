@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Bacteria.gd" type="Script" id=1]
+[ext_resource path="res://bacteriaFinal.png" type="Texture" id=2]
+[ext_resource path="res://marker.png" type="Texture" id=3]
+[ext_resource path="res://bacteriaBrain.png" type="Texture" id=4]
+[ext_resource path="res://bacteriaEggSac.png" type="Texture" id=5]
+[ext_resource path="res://bacteriaToxicEggSac.png" type="Texture" id=6]
+[ext_resource path="res://bacteriaBasicBrain.png" type="Texture" id=7]
+[ext_resource path="res://bacteriaResistance.png" type="Texture" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 67.6708
+
+[node name="Bacterium" type="Area2D"]
+pause_mode = 2
+collision_mask = 6
+script = ExtResource( 1 )
+
+[node name="hitbox" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -8, -2, -7, -4, -5, -5, 1, -5, 6, -3, 8, -1, 8, 1, 6, 3, 1, 5, -5, 5, -7, 4, -8, 2 )
+
+[node name="visual" type="Sprite" parent="."]
+scale = Vector2( 0.54, 0.54 )
+texture = ExtResource( 2 )
+hframes = 4
+frame = 1
+
+[node name="basicBrain" type="Sprite" parent="."]
+scale = Vector2( 0.54, 0.54 )
+texture = ExtResource( 7 )
+hframes = 4
+frame = 1
+
+[node name="brain" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.54, 0.54 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="eggSac" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.54, 0.54 )
+texture = ExtResource( 5 )
+hframes = 4
+frame = 1
+
+[node name="resistance" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.54, 0.54 )
+texture = ExtResource( 8 )
+hframes = 4
+frame = 1
+
+[node name="toxic" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.54, 0.54 )
+texture = ExtResource( 6 )
+hframes = 4
+frame = 1
+
+[node name="left" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="left"]
+modulate = Color( 1, 1, 1, 0.219608 )
+polygon = PoolVector2Array( 1.15573, -6.89424, 8.96493, -3.41013, 42.8106, -41.6007, -23.5332, -25.9204 )
+
+[node name="right" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="right"]
+modulate = Color( 1, 1, 1, 0.219608 )
+position = Vector2( -0.060585, 0 )
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 1.15573, -6.89424, 8.96493, -3.41013, 43.031, -41, -23.5, -25.734 )
+
+[node name="forward" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="forward"]
+modulate = Color( 1, 1, 1, 0.219608 )
+polygon = PoolVector2Array( 9.56033, -2.58112, 9.40056, 2.6644, 55.0587, 42.0355, 55.6171, -43.033 )
+
+[node name="leftEgg" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="leftEgg"]
+modulate = Color( 1, 1, 1, 0.219608 )
+polygon = PoolVector2Array( 1.15573, -6.89424, 8.96493, -3.41013, 42.8106, -41.6007, -23.5332, -25.9204 )
+
+[node name="rightEgg" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="rightEgg"]
+modulate = Color( 1, 1, 1, 0.219608 )
+position = Vector2( -0.060585, 0 )
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 1.15573, -6.89424, 8.96493, -3.41013, 43.031, -41, -23.5, -25.734 )
+
+[node name="forwardEgg" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="forwardEgg"]
+modulate = Color( 1, 1, 1, 0.219608 )
+polygon = PoolVector2Array( 9.56033, -2.58112, 9.40056, 2.6644, 55.0587, 42.0355, 55.6171, -43.033 )
+
+[node name="eggReady" type="Area2D" parent="."]
+visible = false
+monitorable = false
+collision_layer = 0
+
+[node name="radius" type="CollisionShape2D" parent="eggReady"]
+shape = SubResource( 1 )
+
+[node name="marker" type="Sprite" parent="."]
+visible = false
+z_index = 3
+texture = ExtResource( 3 )
+offset = Vector2( 0, -16 )
+
+[connection signal="area_entered" from="." to="." method="_on_Bacteria_area_entered"]

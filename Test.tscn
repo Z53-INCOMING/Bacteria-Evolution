@@ -1,0 +1,256 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Bacterium.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Test.gd" type="Script" id=2]
+[ext_resource path="res://pixelarrow2.png" type="Texture" id=4]
+[ext_resource path="res://Camera2D.gd" type="Script" id=5]
+[ext_resource path="res://bacteria.png" type="Texture" id=6]
+[ext_resource path="res://Helvetica.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://foodPellet.png" type="Texture" id=8]
+[ext_resource path="res://pixelarrow.png" type="Texture" id=9]
+[ext_resource path="res://bacteriaEgg.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 3.2401
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+extra_spacing_char = 1
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+extra_spacing_char = 1
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 14
+extra_spacing_char = 1
+font_data = ExtResource( 7 )
+
+[node name="Test" type="Node2D"]
+pause_mode = 1
+script = ExtResource( 2 )
+
+[node name="Bacteria" type="Node2D" parent="."]
+
+[node name="Bacterium" parent="Bacteria" instance=ExtResource( 1 )]
+position = Vector2( -17.0056, 107.788 )
+scale = Vector2( 2, 2 )
+onLeft = -1
+onRight = 1
+onForward = 2
+onEggLeft = -1
+onEggRight = 1
+onEggForward = 2
+mutate = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+pause_mode = 2
+current = true
+zoom = Vector2( 3, 3 )
+script = ExtResource( 5 )
+
+[node name="mouse" type="Area2D" parent="Camera2D"]
+monitorable = false
+collision_layer = 0
+
+[node name="radius" type="CollisionShape2D" parent="Camera2D/mouse"]
+shape = SubResource( 1 )
+
+[node name="UI" type="CanvasLayer" parent="Camera2D"]
+
+[node name="visible" type="Node2D" parent="Camera2D/UI"]
+
+[node name="childCount" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 42.854
+margin_right = 260.601
+margin_bottom = 56.854
+custom_fonts/font = SubResource( 2 )
+text = "Children:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scale" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 56.2576
+margin_right = 260.601
+margin_bottom = 70.2576
+custom_fonts/font = SubResource( 2 )
+text = "Scale:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gestation" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 68.134
+margin_right = 260.601
+margin_bottom = 82.134
+custom_fonts/font = SubResource( 2 )
+text = "Gestation:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="parent" type="Button" parent="Camera2D/UI/visible"]
+margin_left = 230.0
+margin_top = 83.0
+margin_right = 318.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0.592157, 1, 1 )
+text = "Parent"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="parentLabel" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 270.046
+margin_top = 70.039
+margin_right = 315.046
+margin_bottom = 84.039
+custom_fonts/font = SubResource( 2 )
+text = "Parent:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="age" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 30.278
+margin_right = 260.601
+margin_bottom = 44.278
+custom_fonts/font = SubResource( 2 )
+text = "Age:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="food" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 146.601
+margin_top = 16.5581
+margin_right = 260.601
+margin_bottom = 30.558
+custom_fonts/font = SubResource( 2 )
+text = "Food:"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="Label" parent="Camera2D/UI/visible"]
+margin_left = 228.717
+margin_top = 1.38141
+margin_right = 311.717
+margin_bottom = 16.3814
+custom_fonts/font = SubResource( 4 )
+text = "Name"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.054, 59.4918 )
+rotation = -1.57079
+texture = ExtResource( 6 )
+hframes = 5
+frame = 2
+
+[node name="rightCone" type="Polygon2D" parent="Camera2D/UI/visible"]
+position = Vector2( 296.02, 39.9594 )
+color = Color( 1, 0.141176, 0, 0.435294 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone" type="Polygon2D" parent="Camera2D/UI/visible"]
+position = Vector2( 265.322, 40.2532 )
+color = Color( 0.0784314, 1, 0, 0.435294 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone" type="Polygon2D" parent="Camera2D/UI/visible"]
+position = Vector2( 1.78149, -42.7068 )
+color = Color( 1, 0.141176, 0, 0.435294 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="right" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 308.963, 39.2932 )
+texture = ExtResource( 9 )
+hframes = 2
+
+[node name="left" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 275.867, 38.836 )
+texture = ExtResource( 9 )
+hframes = 2
+
+[node name="front" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.485, 24.4832 )
+texture = ExtResource( 9 )
+hframes = 2
+
+[node name="right2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 307.321, 54.513 )
+texture = ExtResource( 9 )
+hframes = 2
+
+[node name="left2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 277.77, 54.1136 )
+texture = ExtResource( 9 )
+hframes = 2
+
+[node name="front2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.202, 38.8736 )
+texture = ExtResource( 9 )
+hframes = 2
+
+[node name="foodPellet" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 275.862, 38.6848 )
+texture = ExtResource( 8 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.319, 23.8561 )
+texture = ExtResource( 8 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet3" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 308.95, 39.0931 )
+texture = ExtResource( 8 )
+hframes = 7
+
+[node name="bacteriaEgg" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 307.118, 54.2974 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 1
+
+[node name="bacteriaEgg3" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.44, 38.7439 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 1
+
+[node name="bacteriaEgg2" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 277.664, 53.7877 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 1
+
+[node name="pixelarrow2" type="Sprite" parent="."]
+position = Vector2( 205.847, 95.188 )
+rotation = -3.14159
+texture = ExtResource( 4 )
+
+[connection signal="button_down" from="Camera2D/UI/visible/parent" to="Camera2D" method="_on_parent_button_down"]

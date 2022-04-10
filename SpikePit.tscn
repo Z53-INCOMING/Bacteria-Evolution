@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SpikePit.png" type="Texture" id=1]
+[ext_resource path="res://SpikePit.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 21.1677
+
+[node name="SpikePit" type="Area2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="radius" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="visual" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_SpikePit_area_entered"]

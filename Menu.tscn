@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://CreateButton.png" type="Texture" id=1]
+[ext_resource path="res://CreateButtonHover.png" type="Texture" id=2]
+[ext_resource path="res://CreateButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://foodSharpness.png" type="Texture" id=4]
+[ext_resource path="res://foodPeriod.png" type="Texture" id=5]
+[ext_resource path="res://mapSize.png" type="Texture" id=6]
+[ext_resource path="res://Menu.gd" type="Script" id=7]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 80, 30 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 80, 30 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 80, 30 )
+
+[node name="Menu" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 7 )
+
+[node name="create" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 120.021
+margin_top = 144.0
+margin_right = 200.021
+margin_bottom = 174.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+icon = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sharpnessVisual" type="Sprite" parent="."]
+position = Vector2( 160, 9.57906 )
+texture = ExtResource( 4 )
+hframes = 7
+frame = 3
+
+[node name="sharpnessBar" type="HScrollBar" parent="."]
+margin_left = 100.0
+margin_top = 19.5791
+margin_right = 220.0
+margin_bottom = 31.5791
+min_value = -3.0
+max_value = 3.0
+step = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="periodVisual" type="Sprite" parent="."]
+position = Vector2( 160, 60.8903 )
+texture = ExtResource( 5 )
+hframes = 5
+
+[node name="periodBar" type="HScrollBar" parent="."]
+margin_left = 100.0
+margin_top = 70.8903
+margin_right = 220.0
+margin_bottom = 82.8903
+max_value = 4.0
+step = 1.0
+value = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mapVisual" type="Sprite" parent="."]
+position = Vector2( 160, 108.834 )
+texture = ExtResource( 6 )
+hframes = 4
+frame = 2
+
+[node name="mapBar" type="HScrollBar" parent="."]
+margin_left = 100.0
+margin_top = 118.834
+margin_right = 220.0
+margin_bottom = 130.834
+max_value = 3.0
+step = 1.0
+value = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="create" to="." method="_on_create_button_down"]

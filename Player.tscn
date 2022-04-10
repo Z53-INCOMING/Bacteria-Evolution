@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://pixelarrow2.png" type="Texture" id=2]
+[ext_resource path="res://bacteria.png" type="Texture" id=3]
+[ext_resource path="res://Helvetica.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[node name="Player" type="Area2D"]
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="bacteria" type="Sprite" parent="."]
+modulate = Color( 3, 3, 3, 1 )
+texture = ExtResource( 3 )
+hframes = 5
+frame = 3
+
+[node name="hitbox" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -8, -2, -7, -4, -5, -5, 1, -5, 6, -3, 8, -1, 8, 1, 6, 3, 1, 5, -5, 5, -7, 4, -8, 2 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="left" type="ColorRect" parent="UI"]
+margin_right = 106.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="front" type="ColorRect" parent="UI"]
+margin_left = 106.0
+margin_right = 213.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right" type="ColorRect" parent="UI"]
+margin_left = 213.0
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left2" type="ColorRect" parent="UI"]
+visible = false
+margin_left = 21.0
+margin_top = 36.0
+margin_right = 85.0
+margin_bottom = 144.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="front2" type="ColorRect" parent="UI"]
+visible = false
+margin_left = 127.0
+margin_top = 35.0
+margin_right = 192.0
+margin_bottom = 145.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="right2" type="ColorRect" parent="UI"]
+visible = false
+margin_left = 234.0
+margin_top = 35.0
+margin_right = 300.0
+margin_bottom = 146.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UI"]
+margin_left = 27.9837
+margin_top = 22.1454
+margin_right = 55.9837
+margin_bottom = 44.1454
+rect_rotation = 180.0
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transparent" type="CheckButton" parent="UI"]
+margin_left = 240.378
+margin_right = 400.378
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 1 )
+text = "transparent"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="left"]
+modulate = Color( 1, 1, 1, 0.219608 )
+polygon = PoolVector2Array( 1.15573, -6.89424, 8.96493, -3.41013, 42.8106, -41.6007, -23.5332, -25.9204 )
+
+[node name="right" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="right"]
+modulate = Color( 1, 1, 1, 0.219608 )
+position = Vector2( -0.060585, 0 )
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 1.15573, -6.89424, 8.96493, -3.41013, 43.031, -41, -23.5, -25.734 )
+
+[node name="forward" type="Area2D" parent="."]
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="forward"]
+modulate = Color( 1, 1, 1, 0.219608 )
+polygon = PoolVector2Array( 9.56033, -2.58112, 9.40056, 2.6644, 55.0587, 42.0355, 55.6171, -43.033 )
+
+[connection signal="area_entered" from="." to="." method="_on_Player_area_entered"]
+[connection signal="button_down" from="UI/Button" to="." method="_on_Button_button_down"]
