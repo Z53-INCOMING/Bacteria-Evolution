@@ -16,6 +16,7 @@ onready var aScene = preload("res://Archea.tscn")
 onready var mScene = preload("res://Mech.tscn")
 onready var spScene = preload("res://SpikePit.tscn")
 onready var tScene = preload("res://Turret.tscn")
+onready var ccScene = preload("res://ConstructionClaw.tscn")
 
 var disabled = false
 
@@ -75,6 +76,7 @@ func _process(delta: float) -> void:
 		if disabled:
 			for child in get_parent().get_children():
 				if child.name == "Archea":
+					global_position = child.global_position
 					child.queue_free()
 					disabled = false
 		else:
@@ -86,6 +88,7 @@ func _process(delta: float) -> void:
 		if disabled:
 			for child in get_parent().get_children():
 				if child.name == "Mech":
+					global_position = child.global_position
 					child.queue_free()
 					disabled = false
 		else:
@@ -93,8 +96,21 @@ func _process(delta: float) -> void:
 			m.global_position = get_global_mouse_position()
 			get_parent().add_child(m)
 			disabled = true
-	
+	if Input.is_action_just_pressed("construction claw"):
+		if disabled:
+			for child in get_parent().get_children():
+				if child.name == "ConstructionClaw":
+					global_position = child.global_position
+					child.queue_free()
+					disabled = false
+		else:
+			var cc = ccScene.instance()
+			cc.global_position = get_global_mouse_position()
+			get_parent().add_child(cc)
+			disabled = true
+	mouse.visible = false
 	if !disabled:
+		mouse.visible = true
 		if Input.is_action_just_pressed("menu"):
 			menu.visible = !menu.visible
 			if menu.visible:
@@ -349,7 +365,14 @@ func _process(delta: float) -> void:
 				position.y += space * 2
 		
 		mouse.global_position = get_global_mouse_position()
-
+		if Input.is_action_just_pressed("blue"):
+			get_parent().get_child(8).global_position = get_global_mouse_position()
+		if Input.is_action_just_pressed("orange"):
+			get_parent().get_child(9).global_position = get_global_mouse_position()
+		if Input.is_action_pressed("blue"):
+			get_parent().get_child(8).global_rotation = get_global_mouse_position().angle_to_point(get_parent().get_child(8).global_position)
+		if Input.is_action_pressed("orange"):
+			get_parent().get_child(9).global_rotation = get_global_mouse_position().angle_to_point(get_parent().get_child(9).global_position)
 
 func _on_parent_button_down() -> void:
 	if is_instance_valid(following) and is_instance_valid(following.parent):

@@ -5,6 +5,7 @@
 [ext_resource path="res://Mech.gd" type="Script" id=3]
 
 [node name="Mech" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 3 )
 
 [node name="Base" type="Sprite" parent="."]

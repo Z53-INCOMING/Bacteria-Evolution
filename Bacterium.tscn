@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Bacteria.gd" type="Script" id=1]
 [ext_resource path="res://bacteriaFinal.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://bacteriaToxicEggSac.png" type="Texture" id=6]
 [ext_resource path="res://bacteriaBasicBrain.png" type="Texture" id=7]
 [ext_resource path="res://bacteriaResistance.png" type="Texture" id=8]
+[ext_resource path="res://bacteriaFangs.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 67.6708
@@ -21,11 +22,16 @@ script = ExtResource( 1 )
 visible = false
 polygon = PoolVector2Array( -8, -2, -7, -4, -5, -5, 1, -5, 6, -3, 8, -1, 8, 1, 6, 3, 1, 5, -5, 5, -7, 4, -8, 2 )
 
+[node name="fangs" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 9 )
+hframes = 4
+
 [node name="visual" type="Sprite" parent="."]
 scale = Vector2( 0.54, 0.54 )
 texture = ExtResource( 2 )
-hframes = 4
-frame = 1
+hframes = 12
+frame = 11
 
 [node name="basicBrain" type="Sprite" parent="."]
 scale = Vector2( 0.54, 0.54 )
@@ -123,6 +129,7 @@ polygon = PoolVector2Array( 9.56033, -2.58112, 9.40056, 2.6644, 55.0587, 42.0355
 visible = false
 monitorable = false
 collision_layer = 0
+collision_mask = 5
 
 [node name="radius" type="CollisionShape2D" parent="eggReady"]
 shape = SubResource( 1 )
@@ -133,4 +140,8 @@ z_index = 3
 texture = ExtResource( 3 )
 offset = Vector2( 0, -16 )
 
+[node name="FoodCheck" type="Timer" parent="."]
+autostart = true
+
 [connection signal="area_entered" from="." to="." method="_on_Bacteria_area_entered"]
+[connection signal="timeout" from="FoodCheck" to="." method="_on_FoodCheck_timeout"]

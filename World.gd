@@ -43,9 +43,9 @@ func _ready() -> void:
 	foodNoise.period = period
 	foodNoise.octaves = 1
 	bacteria(clamp(space / 5, 50, 300))
-	food(space * 2)
+	food(clamp(space * 2, 500, 5000))
 	get_tree().paused = true
-	
+
 
 
 func food(amount):
@@ -71,12 +71,19 @@ func bacteria(quantity):
 		var randPositions = []
 		for _i in range(0, 14):
 			randPositions.append(Vector2(rand_range(-space, space), rand_range(-space, space)))
-		var bestValue = 10.0
 		var bestPosition = Vector2(rand_range(-space, space), rand_range(-space, space))
-		for pos in randPositions:
-			if (foodNoise.get_noise_2dv(pos + Vector2(space, space)) + 1) / 2 < bestValue:
-				bestValue = (foodNoise.get_noise_2dv(pos) + 1) / 2
-				bestPosition = pos
+		if space != 5000:
+			var bestValue = 10.0
+			for pos in randPositions:
+				if (foodNoise.get_noise_2dv(pos + Vector2(space, space)) + 1) / 2 < bestValue:
+					bestValue = (foodNoise.get_noise_2dv(pos) + 1) / 2
+					bestPosition = pos
+		else:
+			var bestValue = 0.0
+			for pos in randPositions:
+				if (foodNoise.get_noise_2dv(pos + Vector2(space, space)) + 1) / 2 > bestValue:
+					bestValue = (foodNoise.get_noise_2dv(pos) + 1) / 2
+					bestPosition = pos
 		bacteria.global_position = bestPosition
 		bacteria.global_rotation_degrees = rand_range(-180, 180)
 		bacteria.onRight = round(rand_range(-2, 2))
@@ -99,9 +106,9 @@ func bacteria(quantity):
 func _process(delta: float) -> void:
 	Physics2DServer.set_active(true)
 	for marked in get_tree().get_nodes_in_group("marked"):
-		if round(marked.food * 10) / 10 == 5.0:
+		if marked.health == 2:
 			message(marked.name + " is about to die!")
-		if round(marked.food * 10) / 10 == 0.0:
+		if marked.health < 1:
 			message(marked.name + " is dead.")
 		if marked.modulate.r > 1.9:
 			message(marked.name + " just had children.")
@@ -144,7 +151,7 @@ func _process(delta: float) -> void:
 	timeLabel.text = "Sim Time: " + str(round(time * 10) / 10)
 	
 	if !get_tree().paused:
-		if scaledPopulation < clamp(space / 5, 50, 300) and Bacteria.get_child_count() != 0:
+		if scaledPopulation < clamp(space / 5, 50, 300) and Bacteria.get_child_count() != 0 and Food.get_child_count() < 5500:
 			food(round(space / 100.0) * round(speed.value))
 		if scaledPopulation > clamp(space / 5, 50, 300) * 2.5 or Food.get_child_count() > 5500:
 			if is_instance_valid(Food.get_child(0)):

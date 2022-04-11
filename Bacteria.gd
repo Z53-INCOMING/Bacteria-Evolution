@@ -10,6 +10,10 @@ var speed = 30
 
 var velocity = 0
 
+var size = 0
+
+var health = 3
+
 var children = 0
 
 export var food = 15.0
@@ -91,6 +95,7 @@ onready var brain = $brain
 onready var eggSac = $eggSac
 onready var resistance = $resistance
 onready var toxicV = $toxic
+onready var fangs = $fangs
 
 func _ready() -> void:
 	randomize()
@@ -181,20 +186,21 @@ func _ready() -> void:
 		$right.global_scale = Vector2(0.5, 0.5)
 
 func _process(delta: float) -> void:
+	visual.frame = (size * 3) + (health - 1)
 	var world = get_parent().get_parent()
 	if !get_tree().paused:
 		modulate -= Color(1, 1, 1) * delta * 3
 		if modulate.r < 1.0:
 			modulate = Color.white
-		if food < 5.0:
-			modulate = Color.white * (food / 5.0)
 		food -= delta * scale.x * (1.5 if resistant else 1.0)
 		timeAlive += delta
 		speed = 30
 		moved = false
-		if food <= 0:
+		if health <= 0:
 			world.lifeSpans.append(timeAlive)
 			queue_free()
+		if food <= 0:
+			food = 0.0
 
 		var leftNum = leftDtctor.get_overlapping_areas().size()
 		var rightNum = rightDtctor.get_overlapping_areas().size()
@@ -381,12 +387,13 @@ func _on_Bacteria_area_entered(area: Area2D) -> void:
 		area.queue_free()
 
 func visualFrame(value):
-	visual.frame = value
+	size = value
 	basicBrain.frame = value
 	brain.frame = value
 	eggSac.frame = value
 	resistance.frame = value
 	toxicV.frame = value
+	fangs.frame = value
 
 func visualScale(value):
 	visual.scale = Vector2(value, value)
@@ -395,3 +402,13 @@ func visualScale(value):
 	eggSac.scale = Vector2(value, value)
 	resistance.scale = Vector2(value, value)
 	toxicV.scale = Vector2(value, value)
+	fangs.scale = Vector2(value, value)
+
+
+func _on_FoodCheck_timeout() -> void:
+	if !get_tree().paused:
+		if food <= 0.0:
+			health -= 1
+		elif health != 3:
+			health += 1
+		

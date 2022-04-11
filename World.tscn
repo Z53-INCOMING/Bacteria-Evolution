@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Polygon2D.gd" type="Script" id=9]
 [ext_resource path="res://Borders.gd" type="Script" id=10]
 [ext_resource path="res://text.tres" type="DynamicFont" id=11]
+[ext_resource path="res://BluePortal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://OrangePortal.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 5.0
@@ -642,6 +644,14 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="BluePortal" parent="." instance=ExtResource( 12 )]
+position = Vector2( -5500, 0 )
+orangePortalPath = NodePath("../OrangePortal")
+
+[node name="OrangePortal" parent="." instance=ExtResource( 13 )]
+position = Vector2( 5500, 0 )
+bluePortalPath = NodePath("../BluePortal")
 
 [connection signal="button_down" from="Camera2D/UI/visible/parent" to="Camera2D" method="_on_parent_button_down"]
 [connection signal="pressed" from="Camera2D/UI/menu/chat" to="." method="_on_chat_pressed"]

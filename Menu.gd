@@ -11,7 +11,7 @@ onready var mapBar = $mapBar
 
 func _ready() -> void:
 	randomize()
-	mapBar.value = round(rand_range(0.0, 3.0))
+	mapBar.value = round(rand_range(0.0, 4.0))
 	periodBar.value = round(rand_range(0.0, 4.0))
 	sharpnessBar.value = round(rand_range(-3.0, 3.0))
 
@@ -30,6 +30,8 @@ func _on_create_button_down() -> void:
 			Globals.mapSize = 1500
 		3.0:
 			Globals.mapSize = 2500
+		4.0:
+			Globals.mapSize = 5000
 	
 	match float(periodBar.value):
 		0.0:
