@@ -278,22 +278,22 @@ func _process(delta: float) -> void:
 		
 		if canWASD:
 			if Input.is_action_pressed("left"):
-				position.x -= speed * zoom.x * delta / selfTime
+				position.x -= speed * zoom.x * delta / selfTime * Input.get_action_strength("left")
 				following = null
 			if Input.is_action_pressed("right"):
-				position.x += speed * zoom.x * delta / selfTime
+				position.x += speed * zoom.x * delta / selfTime * Input.get_action_strength("right")
 				following = null
 			if Input.is_action_pressed("up"):
-				position.y -= speed * zoom.x * delta / selfTime
+				position.y -= speed * zoom.x * delta / selfTime * Input.get_action_strength("up")
 				following = null
 			if Input.is_action_pressed("down"):
-				position.y += speed * zoom.x * delta / selfTime
+				position.y += speed * zoom.x * delta / selfTime * Input.get_action_strength("down")
 				following = null
 		
 		if Input.is_action_pressed("zoom in"):
-			zoom.x -= zoom.x * 0.5 * delta / selfTime
+			zoom.x -= zoom.x * 0.5 * delta / selfTime * Input.get_action_strength("zoom in")
 		if Input.is_action_pressed("zoom out"):
-			zoom.x += zoom.x * 0.5 * delta / selfTime
+			zoom.x += zoom.x * 0.5 * delta / selfTime * Input.get_action_strength("zoom out")
 		
 		if Input.is_action_just_released("alt zoom in"):
 			zoom.x -= zoom.x * 3 * delta / selfTime
@@ -397,4 +397,5 @@ func _on_parent_button_down() -> void:
 func _on_menu_button_down() -> void:
 	SceneChanger.go_to_scene("res://Menu.tscn", get_parent())
 	
-	
+
+

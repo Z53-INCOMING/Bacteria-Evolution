@@ -116,7 +116,7 @@ func _process(delta: float) -> void:
 	if !get_tree().paused:
 		messages.modulate.a = lerp(messages.modulate.a, 0.0, 0.05)
 	if Input.is_action_just_pressed("restart"):
-		get_tree().change_scene("res://World.tscn")
+		SceneChanger.go_to_scene("res://World.tscn", self)
 	if Bacteria.get_child_count() == 1:
 		label.text = "There is 1 bacterium."
 	elif Bacteria.get_child_count() == 0:

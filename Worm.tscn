@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Space worm.png" type="Texture" id=1]
+[ext_resource path="res://BacterialWorm.png" type="Texture" id=1]
 [ext_resource path="res://Worm.gd" type="Script" id=2]
 [ext_resource path="res://Seg.gd" type="Script" id=3]
 
@@ -13,6 +13,7 @@ _data = {
 extents = Vector2( 5.81748, 12.465 )
 
 [node name="Worm" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Path" type="Path2D" parent="."]
@@ -38,7 +39,7 @@ position = Vector2( -1.33521, -0.19402 )
 shape = SubResource( 2 )
 
 [node name="Seg1" type="PathFollow2D" parent="Path"]
-position = Vector2( 4.90641, 0.114702 )
+position = Vector2( 4.90641, 0.114701 )
 rotation = 0.028758
 offset = 5.04205
 script = ExtResource( 3 )
@@ -50,7 +51,7 @@ hframes = 5
 frame = 1
 
 [node name="Seg2" type="PathFollow2D" parent="Path"]
-position = Vector2( 9.94676, 0.268774 )
+position = Vector2( 9.94677, 0.268774 )
 rotation = 0.054916
 offset = 10.0841
 script = ExtResource( 3 )
@@ -63,7 +64,7 @@ frame = 1
 
 [node name="Seg3" type="PathFollow2D" parent="Path"]
 position = Vector2( 14.9823, 0.51682 )
-rotation = -0.0191015
+rotation = -0.0191013
 offset = 15.1261
 script = ExtResource( 3 )
 
@@ -75,87 +76,87 @@ frame = 1
 
 [node name="Seg4" type="PathFollow2D" parent="Path"]
 position = Vector2( 20.0234, 0.430167 )
-rotation = 0.0159371
+rotation = 0.0159374
 offset = 20.1682
 script = ExtResource( 3 )
 
 [node name="Visual" type="Sprite" parent="Path/Seg4"]
-position = Vector2( 6, 0 )
+position = Vector2( 7, 0 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 2
+frame = 1
 
 [node name="Seg5" type="PathFollow2D" parent="Path"]
-position = Vector2( 25.0654, 0.491899 )
-rotation = -0.031365
+position = Vector2( 25.0653, 0.4919 )
+rotation = -0.0313648
 offset = 25.2102
 script = ExtResource( 3 )
 
 [node name="Visual" type="Sprite" parent="Path/Seg5"]
-position = Vector2( 6, 0 )
+position = Vector2( 7, 0 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 2
+frame = 1
 
 [node name="Seg6" type="PathFollow2D" parent="Path"]
-position = Vector2( 30.1049, 0.343147 )
-rotation = -0.00815457
+position = Vector2( 30.1049, 0.343146 )
+rotation = -0.0081545
 offset = 30.2523
 script = ExtResource( 3 )
 
 [node name="Visual" type="Sprite" parent="Path/Seg6"]
+position = Vector2( 7, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 1
+
+[node name="Seg7" type="PathFollow2D" parent="Path"]
+position = Vector2( 35.1468, 0.319625 )
+rotation = 0.0267209
+offset = 35.2943
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg7"]
+position = Vector2( 7, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 1
+
+[node name="Seg8" type="PathFollow2D" parent="Path"]
+position = Vector2( 40.1869, 0.469766 )
+rotation = 0.0580175
+offset = 40.3364
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg8"]
+position = Vector2( 7, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 1
+
+[node name="Seg9" type="PathFollow2D" parent="Path"]
+position = Vector2( 45.2328, 0.750353 )
+rotation = 0.0316078
+offset = 45.3784
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg9"]
 position = Vector2( 6, 0 )
 texture = ExtResource( 1 )
 hframes = 5
 frame = 2
 
-[node name="Seg7" type="PathFollow2D" parent="Path"]
-position = Vector2( 35.1468, 0.319625 )
-rotation = 0.0267207
-offset = 35.2943
-script = ExtResource( 3 )
-
-[node name="Visual" type="Sprite" parent="Path/Seg7"]
-position = Vector2( 5, 0 )
-texture = ExtResource( 1 )
-hframes = 5
-frame = 3
-
-[node name="Seg8" type="PathFollow2D" parent="Path"]
-position = Vector2( 40.1869, 0.469767 )
-rotation = 0.0580181
-offset = 40.3364
-script = ExtResource( 3 )
-
-[node name="Visual" type="Sprite" parent="Path/Seg8"]
-position = Vector2( 5, 0 )
-texture = ExtResource( 1 )
-hframes = 5
-frame = 3
-
-[node name="Seg9" type="PathFollow2D" parent="Path"]
-position = Vector2( 45.2338, 0.750408 )
-rotation = 0.0316022
-offset = 45.3784
-script = ExtResource( 3 )
-
-[node name="Visual" type="Sprite" parent="Path/Seg9"]
-position = Vector2( 5, 0 )
-texture = ExtResource( 1 )
-hframes = 5
-frame = 3
-
 [node name="Seg10" type="PathFollow2D" parent="Path"]
-position = Vector2( 50.2615, 0.907852 )
-rotation = 0.0297642
+position = Vector2( 50.2611, 0.90784 )
+rotation = 0.0285186
 offset = 50.4205
 script = ExtResource( 3 )
 
 [node name="Visual" type="Sprite" parent="Path/Seg10"]
-position = Vector2( 13, 0 )
+position = Vector2( 5, 0 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 4
+frame = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

@@ -6,6 +6,10 @@ var pos = Vector2.ZERO
 
 onready var camera = $Camera2D
 
+onready var segScene = preload("res://Segment.tscn")
+
+var length = 10
+
 func _ready() -> void:
 	path.curve.clear_points()
 
@@ -15,12 +19,14 @@ func _process(delta: float) -> void:
 	var dir = get_global_mouse_position().angle_to_point(pos)
 	pos += Vector2(cos(dir), sin(dir)) * 2.5
 	path.curve.add_point(pos)
-	if get_length() > 80:
+	if get_length() > length * 8:
 		path.curve.remove_point(0)
 
 
 func _on_mouth_area_entered(area: Area2D) -> void:
+	get_parent().message(area.name + " was devoured by the snake.")
 	area.queue_free()
+	grow()
 
 func get_length():
 	var prevPos = Vector2.ZERO
@@ -30,3 +36,11 @@ func get_length():
 			length += prevPos.distance_to(point)
 		prevPos = point
 	return length
+
+func grow():
+	var seg = segScene.instance()
+	path.add_child(seg)
+	length += 1
+	camera.zoom += Vector2(0.05, 0.05)
+	camera.zoom.x = clamp(camera.zoom.x, 1.0, 10.0)
+	camera.zoom.y = camera.zoom.x
