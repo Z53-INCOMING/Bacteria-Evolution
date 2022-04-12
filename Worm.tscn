@@ -1,0 +1,164 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Space worm.png" type="Texture" id=1]
+[ext_resource path="res://Worm.gd" type="Script" id=2]
+[ext_resource path="res://Seg.gd" type="Script" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -0.133263, -0.0127411, 0, 0, 0, 0, 8.83184, 0.213779, 0, 0, 0, 0, 14.9703, 0.520699, 0, 0, 0, 0, 20.4949, 0.418392, 0, 0, 0, 0, 23.871, 0.520699, 0, 0, 0, 0, 27.6564, 0.418392, 0, 0, 0, 0, 30.8279, 0.316101, 0, 0, 0, 0, 35.6363, 0.316128, 0, 0, 0, 0, 40.4123, 0.473328, 0, 0, 0, 0, 45.3369, 0.763008, 0, 0, 0, 0, 50.2615, 0.907852 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.81748, 12.465 )
+
+[node name="Worm" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="Head" type="PathFollow2D" parent="Path"]
+position = Vector2( -0.133263, -0.0127411 )
+rotation = 0.0248453
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Head"]
+position = Vector2( 8, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="mouth" type="Area2D" parent="Path/Head"]
+monitorable = false
+collision_layer = 0
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Head/mouth"]
+position = Vector2( -1.33521, -0.19402 )
+shape = SubResource( 2 )
+
+[node name="Seg1" type="PathFollow2D" parent="Path"]
+position = Vector2( 4.90641, 0.114702 )
+rotation = 0.028758
+offset = 5.04205
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg1"]
+position = Vector2( 7, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 1
+
+[node name="Seg2" type="PathFollow2D" parent="Path"]
+position = Vector2( 9.94676, 0.268774 )
+rotation = 0.054916
+offset = 10.0841
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg2"]
+position = Vector2( 7, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 1
+
+[node name="Seg3" type="PathFollow2D" parent="Path"]
+position = Vector2( 14.9823, 0.51682 )
+rotation = -0.0191015
+offset = 15.1261
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg3"]
+position = Vector2( 7, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 1
+
+[node name="Seg4" type="PathFollow2D" parent="Path"]
+position = Vector2( 20.0234, 0.430167 )
+rotation = 0.0159371
+offset = 20.1682
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg4"]
+position = Vector2( 6, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 2
+
+[node name="Seg5" type="PathFollow2D" parent="Path"]
+position = Vector2( 25.0654, 0.491899 )
+rotation = -0.031365
+offset = 25.2102
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg5"]
+position = Vector2( 6, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 2
+
+[node name="Seg6" type="PathFollow2D" parent="Path"]
+position = Vector2( 30.1049, 0.343147 )
+rotation = -0.00815457
+offset = 30.2523
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg6"]
+position = Vector2( 6, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 2
+
+[node name="Seg7" type="PathFollow2D" parent="Path"]
+position = Vector2( 35.1468, 0.319625 )
+rotation = 0.0267207
+offset = 35.2943
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg7"]
+position = Vector2( 5, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 3
+
+[node name="Seg8" type="PathFollow2D" parent="Path"]
+position = Vector2( 40.1869, 0.469767 )
+rotation = 0.0580181
+offset = 40.3364
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg8"]
+position = Vector2( 5, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 3
+
+[node name="Seg9" type="PathFollow2D" parent="Path"]
+position = Vector2( 45.2338, 0.750408 )
+rotation = 0.0316022
+offset = 45.3784
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg9"]
+position = Vector2( 5, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 3
+
+[node name="Seg10" type="PathFollow2D" parent="Path"]
+position = Vector2( 50.2615, 0.907852 )
+rotation = 0.0297642
+offset = 50.4205
+script = ExtResource( 3 )
+
+[node name="Visual" type="Sprite" parent="Path/Seg10"]
+position = Vector2( 13, 0 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 4
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[connection signal="area_entered" from="Path/Head/mouth" to="." method="_on_mouth_area_entered"]

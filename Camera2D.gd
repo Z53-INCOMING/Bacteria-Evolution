@@ -17,6 +17,7 @@ onready var mScene = preload("res://Mech.tscn")
 onready var spScene = preload("res://SpikePit.tscn")
 onready var tScene = preload("res://Turret.tscn")
 onready var ccScene = preload("res://ConstructionClaw.tscn")
+onready var wScene = preload("res://Worm.tscn")
 
 var disabled = false
 
@@ -107,6 +108,19 @@ func _process(delta: float) -> void:
 			var cc = ccScene.instance()
 			cc.global_position = get_global_mouse_position()
 			get_parent().add_child(cc)
+			disabled = true
+	if Input.is_action_just_pressed("worm"):
+		if disabled:
+			for child in get_parent().get_children():
+				if child.name == "Worm":
+					global_position = child.global_position
+					child.queue_free()
+					disabled = false
+		else:
+			var w = wScene.instance()
+			w.global_position = Vector2.ZERO
+			w.pos = get_global_mouse_position()
+			get_parent().add_child(w)
 			disabled = true
 	mouse.visible = false
 	if !disabled:
