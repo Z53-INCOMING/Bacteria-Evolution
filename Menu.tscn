@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://CreateButton.png" type="Texture" id=1]
 [ext_resource path="res://CreateButtonHover.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://foodPeriod.png" type="Texture" id=5]
 [ext_resource path="res://mapSize.png" type="Texture" id=6]
 [ext_resource path="res://Menu.gd" type="Script" id=7]
+[ext_resource path="res://HandleHover.tres" type="StyleBox" id=8]
+[ext_resource path="res://Handle.tres" type="StyleBox" id=9]
+[ext_resource path="res://HandleHeld.tres" type="StyleBox" id=10]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -51,8 +54,12 @@ frame = 3
 [node name="sharpnessBar" type="HScrollBar" parent="."]
 margin_left = 100.0
 margin_top = 19.5791
-margin_right = 220.0
-margin_bottom = 31.5791
+margin_right = 1060.0
+margin_bottom = 115.579
+rect_scale = Vector2( 0.125, 0.125 )
+custom_styles/grabber_highlight = ExtResource( 8 )
+custom_styles/grabber = ExtResource( 9 )
+custom_styles/grabber_pressed = ExtResource( 10 )
 min_value = -3.0
 max_value = 3.0
 step = 1.0
@@ -68,8 +75,12 @@ hframes = 5
 [node name="periodBar" type="HScrollBar" parent="."]
 margin_left = 100.0
 margin_top = 70.8903
-margin_right = 220.0
-margin_bottom = 82.8903
+margin_right = 1060.0
+margin_bottom = 166.89
+rect_scale = Vector2( 0.125, 0.125 )
+custom_styles/grabber_highlight = ExtResource( 8 )
+custom_styles/grabber = ExtResource( 9 )
+custom_styles/grabber_pressed = ExtResource( 10 )
 max_value = 4.0
 step = 1.0
 value = 2.0
@@ -86,8 +97,12 @@ frame = 2
 [node name="mapBar" type="HScrollBar" parent="."]
 margin_left = 100.0
 margin_top = 118.834
-margin_right = 220.0
-margin_bottom = 130.834
+margin_right = 1060.0
+margin_bottom = 214.834
+rect_scale = Vector2( 0.125, 0.125 )
+custom_styles/grabber_highlight = ExtResource( 8 )
+custom_styles/grabber = ExtResource( 9 )
+custom_styles/grabber_pressed = ExtResource( 10 )
 max_value = 4.0
 step = 1.0
 value = 2.0

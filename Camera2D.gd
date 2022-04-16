@@ -55,9 +55,13 @@ onready var visibleNode = $UI/visible
 
 onready var gestation = $UI/visible/gestation
 
+onready var undo = $UI/visible/back
+
 var canWASD = true
 
 var following = null
+
+var prevFollowing = null
 
 func colorCone(cone, food, egg):
 	if food and !egg:
@@ -72,6 +76,7 @@ func colorCone(cone, food, egg):
 
 
 func _process(delta: float) -> void:
+	undo.disabled = !is_instance_valid(prevFollowing)
 	current = !disabled
 	if Input.is_action_just_pressed("archea"):
 		if disabled:
@@ -309,8 +314,10 @@ func _process(delta: float) -> void:
 			
 		if Input.is_action_just_pressed("follow"):
 			if !mouse.get_overlapping_areas().empty() and "food" in mouse.get_overlapping_areas()[0]:
+				prevFollowing = following
 				following = mouse.get_overlapping_areas()[0]
 				marked.pressed = following.marked
+				
 		if Input.is_action_pressed("kill"):
 			if !mouse.get_overlapping_areas().empty():
 				for victim in mouse.get_overlapping_areas():
@@ -390,6 +397,7 @@ func _process(delta: float) -> void:
 
 func _on_parent_button_down() -> void:
 	if is_instance_valid(following) and is_instance_valid(following.parent):
+		prevFollowing = following
 		following = following.parent
 		marked.pressed = following.marked
 
@@ -399,3 +407,8 @@ func _on_menu_button_down() -> void:
 	
 
 
+
+
+func _on_back_button_down() -> void:
+	following = prevFollowing
+	prevFollowing = null

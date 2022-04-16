@@ -29,7 +29,6 @@ func _process(_delta: float) -> void:
 			laser.points[1].x = ray.get_collision_point().distance_to(laser.global_position)
 			if is_instance_valid(ray.get_collider()):
 				var targetName = ray.get_collider().name
-				get_parent().message(targetName + " got vaporized.")
 				ray.get_collider().queue_free()
 			firing = false
 	else:

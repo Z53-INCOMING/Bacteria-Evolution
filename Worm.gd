@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 
 
 func _on_mouth_area_entered(area: Area2D) -> void:
-	get_parent().message(area.name + " was devoured by the snake.")
 	area.queue_free()
 	grow()
 

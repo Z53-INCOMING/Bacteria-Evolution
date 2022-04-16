@@ -10,6 +10,8 @@ var mouseType = "Mouse"
 
 var joy_mouse_pos = Vector2.ZERO
 
+var markerColor = Color.red
+
 #func get_true_mouse_pos():
 #	match mouseType:
 #		"Mouse":

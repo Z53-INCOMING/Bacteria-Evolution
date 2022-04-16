@@ -11,8 +11,6 @@ onready var handArea = $hand
 onready var walk = $AnimationPlayer2
 
 func _on_MembranePopper_area_entered(area: Area2D) -> void:
-	if !"energy" in area:
-		get_parent().message("You ate " + area.name + ".")
 	area.queue_free()
 	eat.play("eat")
 # usage: attach to a node2d

@@ -305,6 +305,8 @@ func _process(delta: float) -> void:
 				main.add_child(secondEgg)
 				eggs -= 2
 				eggCooldown = 1.0
+				if is_in_group("marked"):
+					get_parent().get_parent().message(load("res://ReproduceSymbol.png"), name)
 		
 		velocity = lerp(velocity, speed, 0.12)
 		position += Vector2(cos(rotation), sin(rotation)) * velocity * delta * max(scale.x, 1.0)
@@ -338,6 +340,8 @@ func _process(delta: float) -> void:
 				food -= 12
 				children += 1
 				modulate = Color.white * 2
+				if is_in_group("marked"):
+					get_parent().get_parent().message(load("res://ReproduceSymbol.png"), name)
 			else:
 				eggs += 2
 				children += 2
@@ -351,6 +355,7 @@ func _process(delta: float) -> void:
 	if marked:
 		marker.scale = world.camera.zoom / 2 / scale.x
 		marker.global_rotation = 0
+		marker.modulate = Globals.markerColor
 		if !is_in_group("marked"):
 			add_to_group("marked")
 	else:
@@ -409,6 +414,10 @@ func _on_FoodCheck_timeout() -> void:
 	if !get_tree().paused:
 		if food <= 0.0:
 			health -= 1
+			if health == 1 and is_in_group("marked"):
+				get_parent().get_parent().message(load("res://cautionSymbol.png"), name)
+			if health == 0 and is_in_group("marked"):
+				get_parent().get_parent().message(load("res://DeathSymbol.png"), name)
 		elif health != 3:
 			health += 1
 		

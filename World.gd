@@ -17,8 +17,9 @@ onready var smartLabel = $UI/smart
 onready var oviparousLabel = $UI/oviparous
 onready var gestationLabel = $UI/gestation
 onready var oviSmartLabel = $UI/oviSmart
-onready var messages = $UI/message
 onready var UI = $UI
+onready var symbol = $UI/symbol
+onready var markedName = $UI/name
 
 var lifeSpans = []
 
@@ -105,16 +106,7 @@ func bacteria(quantity):
 
 func _process(delta: float) -> void:
 	Physics2DServer.set_active(true)
-	for marked in get_tree().get_nodes_in_group("marked"):
-		if marked.health == 2:
-			message(marked.name + " is about to die!")
-		if marked.health < 1:
-			message(marked.name + " is dead.")
-		if marked.modulate.r > 1.9:
-			message(marked.name + " just had children.")
 	
-	if !get_tree().paused:
-		messages.modulate.a = lerp(messages.modulate.a, 0.0, 0.05)
 	if Input.is_action_just_pressed("restart"):
 		SceneChanger.go_to_scene("res://World.tscn", self)
 	if Bacteria.get_child_count() == 1:
@@ -161,7 +153,7 @@ func _process(delta: float) -> void:
 				Bacteria.get_child(0).queue_free()
 
 
-func _on_Timer_timeout() -> void:
+func _on_ExpensiveCalculationCycle_timeout() -> void:
 	if Bacteria.get_child_count() != 0:
 		var average = 0.0
 		for b in Bacteria.get_children():
@@ -191,24 +183,26 @@ func _on_Timer_timeout() -> void:
 				oviSmart += 1
 		oviSmartLabel.text = "Oviparous And Smart: " + str(oviSmart)
 
-func message(message: String):
-	messages.modulate.a = 1.0
-	messages.text += "\n" + message
-	var msg = messages.text
-	msg = msg.replace("@", "")
-	msg = msg.replace("0", "")
-	msg = msg.replace("1", "")
-	msg = msg.replace("2", "")
-	msg = msg.replace("3", "")
-	msg = msg.replace("4", "")
-	msg = msg.replace("5", "")
-	msg = msg.replace("6", "")
-	msg = msg.replace("7", "")
-	msg = msg.replace("8", "")
-	msg = msg.replace("9", "")
-	messages.text = msg
+func message(icon, identifier):
+	$warningTimer.start(3)
+	symbol.texture = icon
+	symbol.visible = true
+	markedName.visible = true
+	var nameText = identifier
+	nameText = nameText.replace("@", "")
+	nameText = nameText.replace("0", "")
+	nameText = nameText.replace("1", "")
+	nameText = nameText.replace("2", "")
+	nameText = nameText.replace("3", "")
+	nameText = nameText.replace("4", "")
+	nameText = nameText.replace("5", "")
+	nameText = nameText.replace("6", "")
+	nameText = nameText.replace("7", "")
+	nameText = nameText.replace("8", "")
+	nameText = nameText.replace("9", "")
+	markedName.text = nameText
 
 
-
-func _on_chat_pressed() -> void:
-	messages.visible = camera.chat.pressed
+func _on_warningTimer_timeout() -> void:
+	symbol.visible = false
+	markedName.visible = false

@@ -36,7 +36,6 @@ func _process(delta: float) -> void:
 func _on_Missile_area_entered(area: Area2D) -> void:
 	if !area.is_in_group("marked"):
 		area.food = 0.0
-		get_parent().message(area.name + " was blown to smithereens.")
 		queue_free()
 
 
