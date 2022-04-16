@@ -137,3 +137,9 @@ process_material = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/blast = SubResource( 3 )
 anims/stop = SubResource( 4 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 1, 1, 1, 0.0392157 )
+invert_enable = true
+invert_border = 540.4
+polygon = PoolVector2Array( 173.331, 26.5656, 186.948, -16.1633, 128.255, 10.601 )

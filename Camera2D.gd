@@ -83,7 +83,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("irradiate"):
 		if disabled:
 			for child in get_parent().get_children():
-				if child.name == "RadiationBlaster":
+				if child.name == "Camera":
 					global_position = child.global_position
 					child.queue_free()
 					disabled = false

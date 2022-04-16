@@ -120,6 +120,12 @@ func _ready() -> void:
 		parentName = parent.name
 
 func loadBacterium():
+	fangs.visible = false
+	basicBrain.visible = false
+	brain.visible = false
+	eggSac.visible = false
+	toxicV.visible = false
+	resistance.visible = false
 	scale.y = scale.x
 	visualFrame(3)
 	visualScale(2.48)
@@ -135,8 +141,13 @@ func loadBacterium():
 	if onForward == 2 and onRight == 1 and onLeft == -1:
 		smart = true
 		brain.visible = true
+	else:
+		smart = false
+		brain.visible = false
 	if onForward == -2 and onRight == -1 and onLeft == 1:
 		basicBrain.visible = false
+	else:
+		basicBrain.visible = true
 	if oviparous:
 		if toxic:
 			toxicV.visible = true
@@ -346,11 +357,13 @@ func _on_Bacteria_area_entered(area: Area2D) -> void:
 			if area.toxic and !resistant:
 				area.development -= 4.0
 				food = 0.0
+				health = 0
 			else:
 				food += area.energy
 				area.queue_free()
 	elif area.energy == -30.0:
 		food = 0.0
+		health = 0
 	else:
 		food += area.energy
 		area.queue_free()
