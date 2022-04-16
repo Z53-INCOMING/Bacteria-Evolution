@@ -97,68 +97,29 @@ onready var resistance = $resistance
 onready var toxicV = $toxic
 onready var fangs = $fangs
 
+var changeName = true
+
 func _ready() -> void:
 	randomize()
-	var possibleNames = File.new()
-	possibleNames.open("res://possible names.tres", File.READ)
-	var namesArray = possibleNames.get_as_text()
-	namesArray = namesArray.split("\n")
-	name = namesArray[rand_range(0, namesArray.size() - 1)]
-	possibleNames.close()
+	if changeName:
+		var possibleNames = File.new()
+		possibleNames.open("res://possible names.tres", File.READ)
+		var namesArray = possibleNames.get_as_text()
+		namesArray = namesArray.split("\n")
+		name = namesArray[rand_range(0, namesArray.size() - 1)]
+		possibleNames.close()
 	children = 0
 	wander.seed = rand_range(0, 1000)
 	
 	if mutate:
-		if round(rand_range(0.0, 3.0)) == 0.0:
-			onRight = round(rand_range(-2, 2))
-		if round(rand_range(0.0, 3.0)) == 0.0:
-			onLeft = round(rand_range(-2, 2))
-		if round(rand_range(0.0, 3.0)) == 0.0:
-			onForward = round(rand_range(-2, 2))
-		
-		if round(rand_range(0.0, 3.0)) == 0.0:
-			onEggRight += round(rand_range(-1, 1))
-		if round(rand_range(0.0, 3.0)) == 0.0:
-			onEggLeft += round(rand_range(-1, 1))
-		if round(rand_range(0.0, 3.0)) == 0.0:
-			onEggForward += round(rand_range(-1, 1))
-		
-		if round(rand_range(0.0, 1.0)) == 0.0:
-			scale.x += rand_range(-0.3, 0.15)
-		if round(rand_range(0.0, 4.0)) != 0.0:
-			gestationPeriod += rand_range(-1.5, 1.5)
-		if round(rand_range(0.0, 4.0)) == 0.0:
-			oviparous = !oviparous
-		if round(rand_range(0.0, 6.0)) == 0.0:
-			toxic = !toxic
-		if round(rand_range(0.0, 6.0)) == 0.0:
-			resistant = true
-		if round(rand_range(0.0, 19.0)) == 0.0:
-			resistant = false
-		
-		onLeft = clamp(onLeft, -2, 2)
-		onRight = clamp(onRight, -2, 2)
-		onForward = clamp(onForward, -2, 2)
-		
-		onEggLeft = clamp(onEggLeft, -2, 2)
-		onEggRight = clamp(onEggRight, -2, 2)
-		onEggForward = clamp(onEggForward, -2, 2)
-		
-		onLeft = int(onLeft)
-		onRight = int(onRight)
-		onForward = int(onForward)
-		
-		onEggLeft = int(onEggLeft)
-		onEggRight = int(onEggRight)
-		onEggForward = int(onEggForward)
-	
-	scale.x = clamp(scale.x, 0.2, 2.0)
-	gestationPeriod = clamp(gestationPeriod, 5.0, 30.0)
-	gestationPeriod = round(gestationPeriod * 10) / 10
-	scale.x = round(scale.x * 10) / 10
+		tryMutation()
+	else:
+		loadBacterium()
 	
 	if is_instance_valid(parent):
 		parentName = parent.name
+
+func loadBacterium():
 	scale.y = scale.x
 	visualFrame(3)
 	visualScale(2.48)
@@ -177,7 +138,10 @@ func _ready() -> void:
 	if onForward == -2 and onRight == -1 and onLeft == 1:
 		basicBrain.visible = false
 	if oviparous:
-		eggSac.visible = true
+		if toxic:
+			toxicV.visible = true
+		else:
+			eggSac.visible = true
 	if resistant:
 		resistance.visible = true
 	if scale.x < 0.5:
@@ -421,3 +385,54 @@ func _on_FoodCheck_timeout() -> void:
 		elif health != 3:
 			health += 1
 		
+
+func tryMutation():
+	if round(rand_range(0.0, 3.0)) == 0.0:
+		onRight = round(rand_range(-2, 2))
+	if round(rand_range(0.0, 3.0)) == 0.0:
+		onLeft = round(rand_range(-2, 2))
+	if round(rand_range(0.0, 3.0)) == 0.0:
+		onForward = round(rand_range(-2, 2))
+	
+	if round(rand_range(0.0, 3.0)) == 0.0:
+		onEggRight = round(rand_range(-2, 2))
+	if round(rand_range(0.0, 3.0)) == 0.0:
+		onEggLeft = round(rand_range(-2, 2))
+	if round(rand_range(0.0, 3.0)) == 0.0:
+		onEggForward = round(rand_range(-2, 2))
+	
+	if round(rand_range(0.0, 2.0)) == 0.0:
+		scale.x += rand_range(-0.2, 0.2)
+	if round(rand_range(0.0, 4.0)) != 0.0:
+		gestationPeriod += rand_range(-1.5, 1.5)
+	if round(rand_range(0.0, 4.0)) == 0.0:
+		oviparous = !oviparous
+	if round(rand_range(0.0, 5.0)) == 0.0:
+		toxic = !toxic
+	if round(rand_range(0.0, 5.0)) == 0.0:
+		resistant = true
+	if round(rand_range(0.0, 14.0)) == 0.0:
+		resistant = false
+	
+	onLeft = clamp(onLeft, -2, 2)
+	onRight = clamp(onRight, -2, 2)
+	onForward = clamp(onForward, -2, 2)
+	
+	onEggLeft = clamp(onEggLeft, -2, 2)
+	onEggRight = clamp(onEggRight, -2, 2)
+	onEggForward = clamp(onEggForward, -2, 2)
+	
+	onLeft = int(onLeft)
+	onRight = int(onRight)
+	onForward = int(onForward)
+	
+	onEggLeft = int(onEggLeft)
+	onEggRight = int(onEggRight)
+	onEggForward = int(onEggForward)
+	
+	scale.x = clamp(scale.x, 0.2, 2.0)
+	gestationPeriod = clamp(gestationPeriod, 5.0, 30.0)
+	gestationPeriod = round(gestationPeriod * 10) / 10
+	scale.x = round(scale.x * 10) / 10
+	
+	loadBacterium()

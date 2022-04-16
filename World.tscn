@@ -16,34 +16,34 @@
 [ext_resource path="res://markerColor.gd" type="Script" id=14]
 [ext_resource path="res://UndoButton.png" type="Texture" id=15]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 11
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 size = 9
 extra_spacing_char = 1
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=3]
 size = 15
 extra_spacing_char = 1
 font_data = ExtResource( 3 )
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=4]
 radius = 5.0
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 12
 extra_spacing_char = 1
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=6]
 size = 14
 extra_spacing_char = 1
 font_data = ExtResource( 3 )
 
-[sub_resource type="Environment" id=8]
+[sub_resource type="Environment" id=7]
 background_mode = 4
 glow_enabled = true
 glow_blend_mode = 0
@@ -139,7 +139,7 @@ margin_left = 204.165
 margin_top = 102.379
 margin_right = 318.165
 margin_bottom = 116.379
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "Averages:"
 align = 2
 __meta__ = {
@@ -151,7 +151,7 @@ margin_left = 204.0
 margin_top = 114.379
 margin_right = 318.0
 margin_bottom = 128.379
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 text = "Life Span: Unknown"
 align = 2
 __meta__ = {
@@ -163,7 +163,7 @@ margin_left = 54.9684
 margin_top = 124.379
 margin_right = 314.968
 margin_bottom = 138.379
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 text = "Children: Unknown"
 align = 2
 __meta__ = {
@@ -175,7 +175,7 @@ margin_left = 55.0
 margin_top = 133.197
 margin_right = 315.0
 margin_bottom = 143.197
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 text = "Scale: 1.0"
 align = 2
 __meta__ = {
@@ -187,7 +187,7 @@ margin_left = 55.0
 margin_top = 142.757
 margin_right = 315.0
 margin_bottom = 152.757
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 text = "Gestation Period: 1.0"
 align = 2
 __meta__ = {
@@ -199,7 +199,7 @@ margin_left = 4.15797
 margin_top = 182.556
 margin_right = 12.158
 margin_bottom = 198.556
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 3 )
 text = "1"
 align = 2
 __meta__ = {
@@ -211,7 +211,7 @@ margin_left = 301.776
 margin_top = 182.556
 margin_right = 318.776
 margin_bottom = 198.556
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 3 )
 text = "4"
 align = 1
 __meta__ = {
@@ -284,7 +284,7 @@ collision_mask = 3
 
 [node name="radius" type="CollisionShape2D" parent="Camera2D/mouse"]
 pause_mode = 2
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Camera2D/mouse"]
 color = Color( 1, 1, 1, 0.12549 )
@@ -337,7 +337,7 @@ margin_left = 230.0
 margin_top = 83.0
 margin_right = 318.0
 margin_bottom = 102.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0.592157, 1, 1 )
 text = "Parent"
@@ -351,7 +351,7 @@ margin_top = 84.4217
 margin_right = 319.416
 margin_bottom = 186.422
 rect_scale = Vector2( 0.15, 0.15 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0.592157, 1, 1 )
 icon = ExtResource( 15 )
@@ -401,7 +401,7 @@ margin_left = 219.454
 margin_top = 1.38141
 margin_right = 302.454
 margin_bottom = 16.3814
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Name"
 align = 2
 __meta__ = {
@@ -566,10 +566,10 @@ __meta__ = {
 }
 
 [node name="markerColor" type="ColorPicker" parent="Camera2D/UI/menu"]
-margin_left = 99.2228
-margin_top = 72.8253
-margin_right = 691.223
-margin_bottom = 534.825
+margin_left = 103.223
+margin_top = 76.8253
+margin_right = 695.223
+margin_bottom = 538.825
 rect_scale = Vector2( 0.1, 0.1 )
 edit_alpha = false
 hsv_mode = true
@@ -582,7 +582,7 @@ __meta__ = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 pause_mode = 2
-environment = SubResource( 8 )
+environment = SubResource( 7 )
 
 [node name="Food" type="Node2D" parent="."]
 pause_mode = 1

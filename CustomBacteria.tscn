@@ -1,13 +1,21 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bacteriaEgg.png" type="Texture" id=1]
+[ext_resource path="res://pixelarrow.png" type="Texture" id=2]
+[ext_resource path="res://bacteria.png" type="Texture" id=3]
+[ext_resource path="res://foodPellet.png" type="Texture" id=4]
+[ext_resource path="res://CustomBacteria.gd" type="Script" id=5]
 
 [node name="CustomBacteria" type="CanvasLayer"]
+pause_mode = 2
 layer = 3
+script = ExtResource( 5 )
 
 [node name="scale" type="SpinBox" parent="."]
-margin_left = 65.0
-margin_top = 44.4433
-margin_right = 139.0
-margin_bottom = 68.4433
+margin_left = 12.0
+margin_top = 26.0
+margin_right = 97.0
+margin_bottom = 50.0
 rect_scale = Vector2( 0.4, 0.4 )
 min_value = 0.2
 max_value = 2.0
@@ -19,10 +27,10 @@ __meta__ = {
 }
 
 [node name="gestation" type="SpinBox" parent="."]
-margin_left = 97.6992
-margin_top = 44.6208
-margin_right = 204.699
-margin_bottom = 68.6208
+margin_left = 49.4231
+margin_top = 26.3906
+margin_right = 156.423
+margin_bottom = 50.3906
 rect_scale = Vector2( 0.4, 0.4 )
 min_value = 5.0
 max_value = 30.0
@@ -33,21 +41,208 @@ __meta__ = {
 }
 
 [node name="toxic" type="CheckBox" parent="."]
-margin_left = 141.306
-margin_top = 37.3099
-margin_right = 200.306
-margin_bottom = 61.3099
+margin_left = 93.0298
+margin_top = 19.0797
+margin_right = 152.03
+margin_bottom = 43.0797
 text = "toxic"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="oviparous" type="CheckBox" parent="."]
-margin_left = 193.974
-margin_top = 37.3099
-margin_right = 283.974
-margin_bottom = 61.3099
+margin_left = 145.698
+margin_top = 19.0797
+margin_right = 235.698
+margin_bottom = 43.0797
 text = "oviparous"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="resistant" type="CheckBox" parent="."]
+margin_left = 233.473
+margin_top = 19.0797
+margin_right = 323.473
+margin_bottom = 43.0797
+text = "resistant"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria" type="Sprite" parent="."]
+position = Vector2( 159.858, 112.397 )
+rotation = -1.57079
+texture = ExtResource( 3 )
+hframes = 5
+frame = 2
+
+[node name="rightCone" type="Polygon2D" parent="."]
+position = Vector2( 163.824, 92.8643 )
+color = Color( 0.458824, 0.0823529, 0.0196078, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone" type="Polygon2D" parent="."]
+position = Vector2( 133.126, 93.1581 )
+color = Color( 0.458824, 0.0823529, 0.0196078, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone" type="Polygon2D" parent="."]
+position = Vector2( -130.415, 10.1981 )
+color = Color( 1, 0.141176, 0, 0.435294 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="bacteriaEgg" type="Sprite" parent="."]
+position = Vector2( 174.922, 107.25 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 1
+
+[node name="bacteriaEgg3" type="Sprite" parent="."]
+position = Vector2( 160.244, 91.6488 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 1
+
+[node name="bacteriaEgg2" type="Sprite" parent="."]
+position = Vector2( 145.468, 106.693 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 1
+
+[node name="right" type="Sprite" parent="."]
+position = Vector2( 176.767, 92.1981 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="left" type="Sprite" parent="."]
+position = Vector2( 143.671, 91.7409 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="front" type="Sprite" parent="."]
+position = Vector2( 160.289, 77.3881 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="right2" type="Sprite" parent="."]
+position = Vector2( 175.125, 107.418 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="left2" type="Sprite" parent="."]
+position = Vector2( 145.574, 107.018 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="front2" type="Sprite" parent="."]
+position = Vector2( 160.006, 91.7785 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="foodPellet" type="Sprite" parent="."]
+position = Vector2( 143.236, 92.0666 )
+texture = ExtResource( 4 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet2" type="Sprite" parent="."]
+position = Vector2( 160.695, 77.2857 )
+texture = ExtResource( 4 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet3" type="Sprite" parent="."]
+position = Vector2( 177.278, 92.3795 )
+texture = ExtResource( 4 )
+hframes = 7
+
+[node name="eggAvoid" type="Button" parent="."]
+margin_left = 34.5704
+margin_top = 53.2113
+margin_right = 110.57
+margin_bottom = 73.2113
+text = "egg: avoid"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="eggFollow" type="Button" parent="."]
+margin_left = 34.5704
+margin_top = 81.0699
+margin_right = 114.57
+margin_bottom = 101.07
+text = "egg: follow"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="eggNothing" type="Button" parent="."]
+margin_left = 34.5704
+margin_top = 108.329
+margin_right = 114.57
+margin_bottom = 128.329
+text = "egg: nothing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="foodAvoid" type="Button" parent="."]
+margin_left = 206.597
+margin_top = 53.2113
+margin_right = 288.597
+margin_bottom = 73.2113
+text = "food: avoid"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="foodFollow" type="Button" parent="."]
+margin_left = 206.597
+margin_top = 81.0699
+margin_right = 292.597
+margin_bottom = 101.07
+text = "food: follow"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="foodNothing" type="Button" parent="."]
+margin_left = 206.597
+margin_top = 107.177
+margin_right = 292.597
+margin_bottom = 127.177
+text = "food: nothing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="create" type="Button" parent="."]
+margin_left = 133.606
+margin_top = 153.0
+margin_right = 185.606
+margin_bottom = 173.0
+text = "create"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="LineEdit" parent="."]
+margin_left = 124.0
+margin_top = 44.0
+margin_right = 194.0
+margin_bottom = 68.0
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="eggAvoid" to="." method="_on_eggAvoid_button_down"]
+[connection signal="button_down" from="eggFollow" to="." method="_on_eggFollow_button_down"]
+[connection signal="button_down" from="eggNothing" to="." method="_on_eggNothing_button_down"]
+[connection signal="button_down" from="foodAvoid" to="." method="_on_foodAvoid_button_down"]
+[connection signal="button_down" from="foodFollow" to="." method="_on_foodFollow_button_down"]
+[connection signal="button_down" from="foodNothing" to="." method="_on_foodNothing_button_down"]
+[connection signal="button_down" from="create" to="." method="_on_create_button_down"]

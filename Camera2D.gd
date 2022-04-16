@@ -10,6 +10,7 @@ var start = Vector2.ZERO
 
 onready var mouse = $mouse
 
+onready var customBacteriaBuilderScene = preload("res://CustomBacteria.tscn")
 onready var fScene = preload("res://food.tscn")
 onready var bScene = preload("res://Bacterium.tscn")
 onready var aScene = preload("res://Archea.tscn")
@@ -18,6 +19,7 @@ onready var spScene = preload("res://SpikePit.tscn")
 onready var tScene = preload("res://Turret.tscn")
 onready var ccScene = preload("res://ConstructionClaw.tscn")
 onready var wScene = preload("res://Worm.tscn")
+onready var iScene = preload("res://RadiationBlaster.tscn")
 
 var disabled = false
 
@@ -78,6 +80,18 @@ func colorCone(cone, food, egg):
 func _process(delta: float) -> void:
 	undo.disabled = !is_instance_valid(prevFollowing)
 	current = !disabled
+	if Input.is_action_just_pressed("irradiate"):
+		if disabled:
+			for child in get_parent().get_children():
+				if child.name == "RadiationBlaster":
+					global_position = child.global_position
+					child.queue_free()
+					disabled = false
+		else:
+			var i = iScene.instance()
+			i.global_position = get_global_mouse_position()
+			get_parent().add_child(i)
+			disabled = true
 	if Input.is_action_just_pressed("archea"):
 		if disabled:
 			for child in get_parent().get_children():
@@ -129,6 +143,14 @@ func _process(delta: float) -> void:
 			disabled = true
 	mouse.visible = false
 	if !disabled:
+		if Input.is_action_just_pressed("customBacteria"):
+			var falseAlarm = false
+			for child in get_children():
+				if child.name == "CustomBacteria":
+					falseAlarm = true
+			if !falseAlarm:
+				var customBacteriaBuilder = customBacteriaBuilderScene.instance()
+				add_child(customBacteriaBuilder)
 		mouse.visible = true
 		if Input.is_action_just_pressed("menu"):
 			menu.visible = !menu.visible
@@ -314,10 +336,14 @@ func _process(delta: float) -> void:
 			
 		if Input.is_action_just_pressed("follow"):
 			if !mouse.get_overlapping_areas().empty() and "food" in mouse.get_overlapping_areas()[0]:
-				prevFollowing = following
-				following = mouse.get_overlapping_areas()[0]
-				marked.pressed = following.marked
-				
+				var falseAlarm = false
+				for child in get_children():
+					if child.name == "CustomBacteria":
+						falseAlarm = true
+				if !falseAlarm:
+					prevFollowing = following
+					following = mouse.get_overlapping_areas()[0]
+					marked.pressed = following.marked
 		if Input.is_action_pressed("kill"):
 			if !mouse.get_overlapping_areas().empty():
 				for victim in mouse.get_overlapping_areas():

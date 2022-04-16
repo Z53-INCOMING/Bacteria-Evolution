@@ -108,7 +108,12 @@ func _process(delta: float) -> void:
 	Physics2DServer.set_active(true)
 	
 	if Input.is_action_just_pressed("restart"):
-		SceneChanger.go_to_scene("res://World.tscn", self)
+		var falseAlarm = false
+		for child in camera.get_children():
+			if child.name == "CustomBacteria":
+				falseAlarm = true
+		if !falseAlarm:
+			SceneChanger.go_to_scene("res://World.tscn", self)
 	if Bacteria.get_child_count() == 1:
 		label.text = "There is 1 bacterium."
 	elif Bacteria.get_child_count() == 0:
