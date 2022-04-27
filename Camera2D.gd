@@ -85,6 +85,7 @@ func _process(delta: float) -> void:
 	weapon("mech", mScene)
 	weapon("construction claw", ccScene)
 	weapon("worm", wScene)
+	weapon("turret", tScene)
 	mouse.visible = false
 	if !disabled:
 		weapon("customBacteria", customBacteriaBuilderScene)
@@ -97,10 +98,6 @@ func _process(delta: float) -> void:
 			var sp = spScene.instance()
 			sp.global_position = get_global_mouse_position()
 			get_parent().add_child(sp)
-		if Input.is_action_just_pressed("turret"):
-			var t = tScene.instance()
-			t.global_position = get_global_mouse_position()
-			get_parent().add_child(t)
 		
 		visibleNode.visible = false
 		if is_instance_valid(following):
@@ -378,32 +375,40 @@ func _on_back_button_down() -> void:
 
 
 func weapon(input: String, scene: PackedScene):
-	var weaponNames = ["Archea", "Mech", "ConstructionClaw", "Worm", "Camera", "CustomBacteria"]
+	var weaponNames = ["Archea", "Mech", "ConstructionClaw", "Worm", "Camera", "CustomBacteria", "Turret"]
 	var detectedChild = ""
-	if Input.is_action_just_pressed(input):
-		if disabled:
-			for child in get_parent().get_children():
-				if weaponNames.has(child.name):
-					global_position = child.global_position
-					child.queue_free()
-					disabled = false
-					match child.name:
-						"Archea":
-							detectedChild = "archea"
-						"Mech":
-							detectedChild = "mech"
-						"ConstructionClaw":
-							detectedChild = "construction claw"
-						"Worm":
-							detectedChild = "worm"
-						"Camera":
-							detectedChild = "irradiate"
-						"CustomBacteria":
-							detectedChild = "customBacteria"
-					break
-		if detectedChild != input:
-			var weapon = scene.instance()
-			if "global_position" in weapon:
-				weapon.global_position = get_global_mouse_position()
-			get_parent().add_child(weapon)
-			disabled = true
+	var falseAlarm = false
+	for child in get_parent().get_children():
+		if child.name == "CustomBacteria":
+			falseAlarm = true
+	if !falseAlarm:
+		if Input.is_action_just_pressed(input):
+			if disabled:
+				for child in get_parent().get_children():
+					if weaponNames.has(child.name):
+						if "global_position" in child:
+							global_position = child.global_position
+						child.queue_free()
+						disabled = false
+						match child.name:
+							"Archea":
+								detectedChild = "archea"
+							"Mech":
+								detectedChild = "mech"
+							"ConstructionClaw":
+								detectedChild = "construction claw"
+							"Worm":
+								detectedChild = "worm"
+							"Camera":
+								detectedChild = "irradiate"
+							"CustomBacteria":
+								detectedChild = "customBacteria"
+							"Turret":
+								detectedChild = "turret"
+						break
+			if detectedChild != input:
+				var weapon = scene.instance()
+				if "global_position" in weapon:
+					weapon.global_position = get_global_mouse_position()
+				get_parent().add_child(weapon)
+				disabled = true

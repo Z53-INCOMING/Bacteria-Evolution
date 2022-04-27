@@ -1,42 +1,37 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://TurretBase.png" type="Texture" id=1]
 [ext_resource path="res://TurretHead.png" type="Texture" id=2]
 [ext_resource path="res://GreenLaser.png" type="Texture" id=3]
 [ext_resource path="res://Turret.gd" type="Script" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 320.0
-
-[node name="Turret" type="Area2D"]
-monitorable = false
-collision_layer = 0
-collision_mask = 5
+[node name="Turret" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="base" type="Sprite" parent="."]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 texture = ExtResource( 1 )
 
 [node name="head" type="Sprite" parent="."]
+self_modulate = Color( 1.6, 1.6, 1.6, 1 )
 texture = ExtResource( 2 )
-
-[node name="Line2D" type="Line2D" parent="head"]
-modulate = Color( 2, 2, 2, 1 )
-position = Vector2( 15, 0 )
-points = PoolVector2Array( 0, 0, 0, 0 )
-width = 4.0
-default_color = Color( 1, 1, 1, 1 )
-texture = ExtResource( 3 )
-texture_mode = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="head"]
 position = Vector2( 15, 0 )
 enabled = true
 cast_to = Vector2( 305, 0 )
-collision_mask = 5
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="radius" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource( 1 )
+[node name="Line2D" type="Line2D" parent="head"]
+modulate = Color( 1.8, 3, 1.3, 1 )
+position = Vector2( 15, 0 )
+points = PoolVector2Array( 0, 0, 305, 0 )
+width = 4.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 3 )
+texture_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.5, 1.5 )

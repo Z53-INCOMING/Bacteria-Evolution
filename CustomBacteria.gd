@@ -78,7 +78,7 @@ func _on_foodFollow_button_down() -> void:
 
 func _on_create_button_down() -> void:
 	var bacterium = bacteriaScene.instance()
-	bacterium.global_position = get_parent().global_position
+	bacterium.global_position = get_parent().get_child(2).global_position
 	bacterium.mutate = false
 	
 	bacterium.scale = Vector2(scaleNumber.value, scaleNumber.value)
@@ -94,11 +94,12 @@ func _on_create_button_down() -> void:
 	bacterium.onRight = foodRight
 	bacterium.onForward = foodFront
 	
-	bacterium.onEggLeft = foodLeft
+	bacterium.onEggLeft = eggLeft
 	bacterium.onEggRight = eggRight
-	bacterium.onEggForward = foodFront
+	bacterium.onEggForward = eggFront
 	
-	get_parent().get_parent().Bacteria.add_child(bacterium)
+	get_parent().Bacteria.add_child(bacterium)
+	get_parent().get_child(2).disabled = false
 	get_tree().paused = firstPause
 	queue_free()
 

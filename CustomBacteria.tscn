@@ -45,6 +45,7 @@ margin_left = 93.0298
 margin_top = 19.0797
 margin_right = 152.03
 margin_bottom = 43.0797
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "toxic"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,6 +56,7 @@ margin_left = 145.698
 margin_top = 19.0797
 margin_right = 235.698
 margin_bottom = 43.0797
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "oviparous"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -65,6 +67,7 @@ margin_left = 233.473
 margin_top = 19.0797
 margin_right = 323.473
 margin_bottom = 43.0797
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "resistant"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -164,6 +167,7 @@ margin_left = 34.5704
 margin_top = 53.2113
 margin_right = 110.57
 margin_bottom = 73.2113
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "egg: avoid"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -174,6 +178,7 @@ margin_left = 34.5704
 margin_top = 81.0699
 margin_right = 114.57
 margin_bottom = 101.07
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "egg: follow"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -184,6 +189,7 @@ margin_left = 34.5704
 margin_top = 108.329
 margin_right = 114.57
 margin_bottom = 128.329
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "egg: nothing"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -194,6 +200,7 @@ margin_left = 206.597
 margin_top = 53.2113
 margin_right = 288.597
 margin_bottom = 73.2113
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "food: avoid"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -204,6 +211,7 @@ margin_left = 206.597
 margin_top = 81.0699
 margin_right = 292.597
 margin_bottom = 101.07
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "food: follow"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -214,6 +222,7 @@ margin_left = 206.597
 margin_top = 107.177
 margin_right = 292.597
 margin_bottom = 127.177
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "food: nothing"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -224,6 +233,8 @@ margin_left = 133.606
 margin_top = 153.0
 margin_right = 185.606
 margin_bottom = 173.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
 text = "create"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -234,6 +245,7 @@ margin_left = 124.0
 margin_top = 44.0
 margin_right = 194.0
 margin_bottom = 68.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Name"
 __meta__ = {
 "_edit_use_anchors_": false
