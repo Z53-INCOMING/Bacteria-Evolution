@@ -11,6 +11,8 @@ onready var segScene = preload("res://Segment.tscn")
 var length = 10
 
 func _ready() -> void:
+	pos = global_position
+	global_position = Vector2(0, 0)
 	path.curve.clear_points()
 
 func _process(delta: float) -> void:
@@ -30,12 +32,12 @@ func _on_mouth_area_entered(area: Area2D) -> void:
 
 func get_length():
 	var prevPos = Vector2.ZERO
-	var length = 0.0
+	var length2 = 0.0
 	for point in path.curve.get_baked_points():
 		if prevPos != Vector2.ZERO:
-			length += prevPos.distance_to(point)
+			length2 += prevPos.distance_to(point)
 		prevPos = point
-	return length
+	return length2
 
 func grow():
 	var seg = segScene.instance()
