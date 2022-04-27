@@ -80,77 +80,14 @@ func colorCone(cone, food, egg):
 func _process(delta: float) -> void:
 	undo.disabled = !is_instance_valid(prevFollowing)
 	current = !disabled
-	if Input.is_action_just_pressed("irradiate"):
-		if disabled:
-			for child in get_parent().get_children():
-				if child.name == "Camera":
-					global_position = child.global_position
-					child.queue_free()
-					disabled = false
-		else:
-			var i = iScene.instance()
-			i.global_position = get_global_mouse_position()
-			get_parent().add_child(i)
-			disabled = true
-	if Input.is_action_just_pressed("archea"):
-		if disabled:
-			for child in get_parent().get_children():
-				if child.name == "Archea":
-					global_position = child.global_position
-					child.queue_free()
-					disabled = false
-		else:
-			var a = aScene.instance()
-			a.global_position = get_global_mouse_position()
-			get_parent().add_child(a)
-			disabled = true
-	if Input.is_action_just_pressed("mech"):
-		if disabled:
-			for child in get_parent().get_children():
-				if child.name == "Mech":
-					global_position = child.global_position
-					child.queue_free()
-					disabled = false
-		else:
-			var m = mScene.instance()
-			m.global_position = get_global_mouse_position()
-			get_parent().add_child(m)
-			disabled = true
-	if Input.is_action_just_pressed("construction claw"):
-		if disabled:
-			for child in get_parent().get_children():
-				if child.name == "ConstructionClaw":
-					global_position = child.global_position
-					child.queue_free()
-					disabled = false
-		else:
-			var cc = ccScene.instance()
-			cc.global_position = get_global_mouse_position()
-			get_parent().add_child(cc)
-			disabled = true
-	if Input.is_action_just_pressed("worm"):
-		if disabled:
-			for child in get_parent().get_children():
-				if child.name == "Worm":
-					global_position = child.global_position
-					child.queue_free()
-					disabled = false
-		else:
-			var w = wScene.instance()
-			w.global_position = Vector2.ZERO
-			w.pos = get_global_mouse_position()
-			get_parent().add_child(w)
-			disabled = true
+	weapon("irradiate", iScene)
+	weapon("archea", aScene)
+	weapon("mech", mScene)
+	weapon("construction claw", ccScene)
+	weapon("worm", wScene)
 	mouse.visible = false
 	if !disabled:
-		if Input.is_action_just_pressed("customBacteria"):
-			var falseAlarm = false
-			for child in get_children():
-				if child.name == "CustomBacteria":
-					falseAlarm = true
-			if !falseAlarm:
-				var customBacteriaBuilder = customBacteriaBuilderScene.instance()
-				add_child(customBacteriaBuilder)
+		weapon("customBacteria", customBacteriaBuilderScene)
 		mouse.visible = true
 		if Input.is_action_just_pressed("menu"):
 			menu.visible = !menu.visible
@@ -438,3 +375,35 @@ func _on_menu_button_down() -> void:
 func _on_back_button_down() -> void:
 	following = prevFollowing
 	prevFollowing = null
+
+
+func weapon(input: String, scene: PackedScene):
+	var weaponNames = ["Archea", "Mech", "ConstructionClaw", "Worm", "Camera", "CustomBacteria"]
+	var detectedChild = ""
+	if Input.is_action_just_pressed(input):
+		if disabled:
+			for child in get_parent().get_children():
+				if weaponNames.has(child.name):
+					global_position = child.global_position
+					child.queue_free()
+					disabled = false
+					match child.name:
+						"Archea":
+							detectedChild = "archea"
+						"Mech":
+							detectedChild = "mech"
+						"ConstructionClaw":
+							detectedChild = "construction claw"
+						"Worm":
+							detectedChild = "worm"
+						"Camera":
+							detectedChild = "irradiate"
+						"CustomBacteria":
+							detectedChild = "customBacteria"
+					break
+		if detectedChild != input:
+			var weapon = scene.instance()
+			if "global_position" in weapon:
+				weapon.global_position = get_global_mouse_position()
+			get_parent().add_child(weapon)
+			disabled = true

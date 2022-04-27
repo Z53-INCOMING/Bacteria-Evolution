@@ -109,7 +109,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("restart"):
 		var falseAlarm = false
-		for child in camera.get_children():
+		for child in get_children():
 			if child.name == "CustomBacteria":
 				falseAlarm = true
 		if !falseAlarm:

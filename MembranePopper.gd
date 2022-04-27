@@ -45,6 +45,7 @@ func load_limb_info():
 	end_effector = obj
 
 func _process(delta):
+	$Camera2D.current = true
 	var world = get_parent()
 	if position.x > world.space:
 		position.x -= world.space * 2

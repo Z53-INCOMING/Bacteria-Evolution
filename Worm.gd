@@ -15,12 +15,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	get_tree().paused = false
-	camera.global_position = pos
 	var dir = get_global_mouse_position().angle_to_point(pos)
 	pos += Vector2(cos(dir), sin(dir)) * 2.5
 	path.curve.add_point(pos)
 	if get_length() > length * 8:
 		path.curve.remove_point(0)
+	camera.current = true
+	camera.global_position = pos
 
 
 func _on_mouth_area_entered(area: Area2D) -> void:

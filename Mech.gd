@@ -12,6 +12,7 @@ onready var missileScene = preload("res://Missile.tscn")
 var frame = 0
 
 func _process(delta: float) -> void:
+	$Camera2D.current = true
 	if ray.is_colliding():
 		aim.default_color = Color(0.101961, 1, 0, 0.466667)
 	else:

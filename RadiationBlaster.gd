@@ -7,6 +7,7 @@ onready var radiationBlaster = $RadiationBlaster
 var mutateTimer = 0.05
 
 func _process(delta: float) -> void:
+	current = true
 	get_tree().paused = false
 	radiationBlaster.global_position = get_global_mouse_position()
 	radiationBlaster.rotation = get_local_mouse_position().angle()
