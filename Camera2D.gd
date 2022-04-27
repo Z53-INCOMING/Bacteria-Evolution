@@ -49,9 +49,9 @@ onready var Lcone = $UI/visible/leftCone
 onready var Rcone = $UI/visible/rightCone
 onready var Fcone = $UI/visible/frontCone
 
-var nothingCol = Color(1, 0.141176, 0, 0.435294)
-var fullCol = Color(0, 0.623529, 1, 0.435294)
-var eggCol = Color(1, 0.937255, 0, 0.435294)
+var nothingCol = Color(1, 0.141176, 0, 1.0)
+var fullCol = Color(0, 0.623529, 1, 1.0)
+var eggCol = Color(1, 0.937255, 0, 1.0)
 
 onready var visibleNode = $UI/visible
 

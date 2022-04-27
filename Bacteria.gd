@@ -159,6 +159,27 @@ func loadBacterium():
 		$left.global_scale = Vector2(0.5, 0.5)
 		$forward.global_scale = Vector2(0.5, 0.5)
 		$right.global_scale = Vector2(0.5, 0.5)
+	
+	scale.x = clamp(scale.x, 0.2, 2.0)
+	gestationPeriod = clamp(gestationPeriod, 5.0, 30.0)
+	gestationPeriod = round(gestationPeriod * 10) / 10
+	scale.x = round(scale.x * 10) / 10
+	
+	onLeft = clamp(onLeft, -2, 2)
+	onRight = clamp(onRight, -2, 2)
+	onForward = clamp(onForward, -2, 2)
+	
+	onEggLeft = clamp(onEggLeft, -2, 2)
+	onEggRight = clamp(onEggRight, -2, 2)
+	onEggForward = clamp(onEggForward, -2, 2)
+	
+	onLeft = int(onLeft)
+	onRight = int(onRight)
+	onForward = int(onForward)
+	
+	onEggLeft = int(onEggLeft)
+	onEggRight = int(onEggRight)
+	onEggForward = int(onEggForward)
 
 func _process(delta: float) -> void:
 	visual.frame = (size * 3) + (health - 1)
@@ -253,7 +274,7 @@ func _process(delta: float) -> void:
 				second.toxic = toxic
 				var main = get_parent().get_parent()
 				var firstEgg = eggScene.instance()
-				firstEgg.global_position = global_position + (Vector2(rand_range(-5, 5), rand_range(-5, 5)) * scale)
+				firstEgg.global_position = global_position + (Vector2(rand_range(-15, 15), rand_range(-15, 15)) * scale)
 				firstEgg.frame = 3
 				if scale.x > 0.25:
 					firstEgg.frame = 2
@@ -265,7 +286,7 @@ func _process(delta: float) -> void:
 				firstEgg.gestastionPeriod = gestationPeriod
 				firstEgg.toxic = toxic
 				var secondEgg = eggScene.instance()
-				secondEgg.global_position = global_position + (Vector2(rand_range(-5, 5), rand_range(-5, 5)) * scale)
+				secondEgg.global_position = global_position + (Vector2(rand_range(-15, 15), rand_range(-15, 15)) * scale)
 				secondEgg.frame = 3
 				if scale.x > 0.25:
 					secondEgg.frame = 2
@@ -426,26 +447,5 @@ func tryMutation():
 		resistant = true
 	if round(rand_range(0.0, 14.0)) == 0.0:
 		resistant = false
-	
-	onLeft = clamp(onLeft, -2, 2)
-	onRight = clamp(onRight, -2, 2)
-	onForward = clamp(onForward, -2, 2)
-	
-	onEggLeft = clamp(onEggLeft, -2, 2)
-	onEggRight = clamp(onEggRight, -2, 2)
-	onEggForward = clamp(onEggForward, -2, 2)
-	
-	onLeft = int(onLeft)
-	onRight = int(onRight)
-	onForward = int(onForward)
-	
-	onEggLeft = int(onEggLeft)
-	onEggRight = int(onEggRight)
-	onEggForward = int(onEggForward)
-	
-	scale.x = clamp(scale.x, 0.2, 2.0)
-	gestationPeriod = clamp(gestationPeriod, 5.0, 30.0)
-	gestationPeriod = round(gestationPeriod * 10) / 10
-	scale.x = round(scale.x * 10) / 10
 	
 	loadBacterium()

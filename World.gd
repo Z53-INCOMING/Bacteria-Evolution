@@ -20,6 +20,7 @@ onready var oviSmartLabel = $UI/oviSmart
 onready var UI = $UI
 onready var symbol = $UI/symbol
 onready var markedName = $UI/name
+onready var foodLabel = $UI/foodLabel
 
 var lifeSpans = []
 
@@ -45,6 +46,8 @@ func _ready() -> void:
 	foodNoise.octaves = 1
 	bacteria(clamp(space / 5, 50, 300))
 	food(clamp(space * 2, 500, 5000))
+	if space > 4999:
+		food(15000)
 	get_tree().paused = true
 
 
@@ -130,7 +133,7 @@ func _process(delta: float) -> void:
 			if b.oviparous:
 				oviBacteria += 1
 		oviparousLabel.text = "Oviparous: " + str(oviBacteria)
-	
+	foodLabel.text = "Food: " + str(Food.get_child_count())
 	
 	Engine.time_scale = speed.value
 	camera.selfTime = speed.value
@@ -148,11 +151,18 @@ func _process(delta: float) -> void:
 	timeLabel.text = "Sim Time: " + str(round(time * 10) / 10)
 	
 	if !get_tree().paused:
-		if scaledPopulation < clamp(space / 5, 50, 300) and Bacteria.get_child_count() != 0 and Food.get_child_count() < 5500:
-			food(round(space / 100.0) * round(speed.value))
-		if scaledPopulation > clamp(space / 5, 50, 300) * 2.5 or Food.get_child_count() > 5500:
-			if is_instance_valid(Food.get_child(0)):
-				Food.get_child(0).queue_free()
+		if space > 4999:
+			if scaledPopulation < clamp(space / 5, 50, 300) and Bacteria.get_child_count() != 0 and Food.get_child_count() < 25000:
+				food(round(space / 100.0) * round(speed.value))
+			if scaledPopulation > clamp(space / 5, 50, 300) * 2.5 or Food.get_child_count() > 25000:
+				if is_instance_valid(Food.get_child(0)):
+					Food.get_child(0).queue_free()
+		else:
+			if scaledPopulation < clamp(space / 5, 50, 300) and Bacteria.get_child_count() != 0 and Food.get_child_count() < 5500:
+				food(round(space / 100.0) * round(speed.value))
+			if scaledPopulation > clamp(space / 5, 50, 300) * 2.5 or Food.get_child_count() > 5500:
+				if is_instance_valid(Food.get_child(0)):
+					Food.get_child(0).queue_free()
 		if Bacteria.get_child_count() > clamp(space / 5, 50, 300) * 4.0:
 			if is_instance_valid(Bacteria.get_child(0)):
 				Bacteria.get_child(0).queue_free()

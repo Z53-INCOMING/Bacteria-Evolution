@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://Helvetica.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://bacteria.png" type="Texture" id=4]
 [ext_resource path="res://pixelarrow.png" type="Texture" id=5]
-[ext_resource path="res://visibleSprite.png" type="Texture" id=6]
 [ext_resource path="res://foodPellet.png" type="Texture" id=7]
 [ext_resource path="res://bacteriaEgg.png" type="Texture" id=8]
 [ext_resource path="res://Polygon2D.gd" type="Script" id=9]
@@ -69,10 +68,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="smart" type="Label" parent="UI"]
-margin_top = 11.3772
+[node name="foodLabel" type="Label" parent="UI"]
+margin_top = 11.9277
 margin_right = 224.0
-margin_bottom = 24.3772
+margin_bottom = 24.9277
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Food: X"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="smart" type="Label" parent="UI"]
+margin_left = -225.756
+margin_top = 11.2052
+margin_right = -1.75648
+margin_bottom = 24.2052
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Smart:"
@@ -82,8 +94,9 @@ __meta__ = {
 }
 
 [node name="oviparous" type="Label" parent="UI"]
+margin_left = -225.756
 margin_top = 22.1315
-margin_right = 224.0
+margin_right = -1.75648
 margin_bottom = 35.1315
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -94,8 +107,9 @@ __meta__ = {
 }
 
 [node name="oviSmart" type="Label" parent="UI"]
+margin_left = -225.756
 margin_top = 34.3303
-margin_right = 224.0
+margin_right = -1.75648
 margin_bottom = 47.3303
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -107,9 +121,9 @@ __meta__ = {
 
 [node name="timeLabel" type="Label" parent="UI"]
 margin_left = -0.12841
-margin_top = 46.2418
+margin_top = 22.8545
 margin_right = 133.872
-margin_bottom = 60.2418
+margin_bottom = 36.8545
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Sim Time: 0.0"
@@ -118,9 +132,9 @@ __meta__ = {
 }
 
 [node name="fps" type="Label" parent="UI"]
-margin_top = 58.5185
+margin_top = 35.1312
 margin_right = 52.0
-margin_bottom = 72.5185
+margin_bottom = 49.1312
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "FPS: 60"
@@ -129,22 +143,23 @@ __meta__ = {
 }
 
 [node name="name" type="Label" parent="UI"]
-visible = false
-margin_left = 18.0
-margin_top = 74.0
-margin_right = 80.0
-margin_bottom = 88.0
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 239.465
+margin_top = 107.678
+margin_right = 301.465
+margin_bottom = 121.678
 custom_fonts/font = ExtResource( 11 )
 text = "Name"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="averages" type="Label" parent="UI"]
 margin_left = 204.165
-margin_top = 102.379
+margin_top = 128.124
 margin_right = 318.165
-margin_bottom = 116.379
+margin_bottom = 142.124
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Averages:"
@@ -155,9 +170,9 @@ __meta__ = {
 
 [node name="lifeSpan" type="Label" parent="UI"]
 margin_left = 204.0
-margin_top = 114.379
+margin_top = 140.0
 margin_right = 318.0
-margin_bottom = 128.379
+margin_bottom = 150.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Life Span: Unknown"
@@ -167,10 +182,10 @@ __meta__ = {
 }
 
 [node name="children" type="Label" parent="UI"]
-margin_left = 54.9684
-margin_top = 124.379
-margin_right = 314.968
-margin_bottom = 138.379
+margin_left = 172.012
+margin_top = 148.546
+margin_right = 318.012
+margin_bottom = 158.546
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Children: Unknown"
@@ -180,10 +195,10 @@ __meta__ = {
 }
 
 [node name="scale" type="Label" parent="UI"]
-margin_left = 55.0
-margin_top = 133.197
-margin_right = 315.0
-margin_bottom = 143.197
+margin_left = 58.2401
+margin_top = 157.572
+margin_right = 318.24
+margin_bottom = 167.572
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Scale: 1.0"
@@ -193,10 +208,10 @@ __meta__ = {
 }
 
 [node name="gestation" type="Label" parent="UI"]
-margin_left = 55.0
-margin_top = 142.757
-margin_right = 315.0
-margin_bottom = 152.757
+margin_left = 157.346
+margin_top = 167.63
+margin_right = 318.346
+margin_bottom = 177.63
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Gestation Period: 1.0"
@@ -240,45 +255,8 @@ max_value = 4.0
 step = 0.5
 value = 1.0
 
-[node name="simDataVisible" type="Button" parent="UI"]
-visible = false
-margin_left = 2.0
-margin_top = 42.0
-margin_right = 30.0
-margin_bottom = 66.0
-icon = ExtResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="averagesVisible" type="Button" parent="UI"]
-visible = false
-margin_left = 241.375
-margin_top = 109.749
-margin_right = 269.375
-margin_bottom = 133.749
-icon = ExtResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="speedVisible" type="Button" parent="UI"]
-visible = false
-margin_left = 155.824
-margin_top = 145.531
-margin_right = 183.824
-margin_bottom = 169.531
-icon = ExtResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="symbol" type="Sprite" parent="UI"]
-visible = false
-position = Vector2( 8.09114, 79.1583 )
+position = Vector2( 310.529, 113.805 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 pause_mode = 2
@@ -298,7 +276,7 @@ pause_mode = 2
 shape = SubResource( 4 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Camera2D/mouse"]
-color = Color( 1, 1, 1, 0.12549 )
+color = Color( 0, 0, 0, 0.337255 )
 polygon = PoolVector2Array( -15.9763, 0.0369928, -15.4745, 4.13965, -13.8633, 8.0134, -11.3014, 11.3061, -8.03509, 13.868, -4.11732, 15.4616, 0.0293541, 16.0338, 4.14961, 15.4528, 8.01456, 13.8856, 11.3601, 11.3237, 13.9484, 7.91655, 15.4715, 4.13084, 16.0174, -0.00702524, 15.4539, -4.11848, 13.8692, -8.01864, 11.3072, -11.3554, 8.00576, -13.8381, 4.15842, -15.458, 0.0205488, -15.995, -4.13493, -15.4492, -8.01748, -13.8469, -11.3278, -11.3289, -13.8721, -7.96581, -15.4216, -4.21531 )
 script = ExtResource( 9 )
 
@@ -360,6 +338,7 @@ __meta__ = {
 }
 
 [node name="back" type="Button" parent="Camera2D/UI/visible"]
+modulate = Color( 0, 0, 0, 1 )
 margin_left = 211.416
 margin_top = 84.4217
 margin_right = 319.416
@@ -435,19 +414,19 @@ frame = 2
 
 [node name="rightCone" type="Polygon2D" parent="Camera2D/UI/visible"]
 position = Vector2( 296.02, 39.9594 )
-color = Color( 1, 0.937255, 0, 0.435294 )
+color = Color( 1, 0.937255, 0, 1 )
 offset = Vector2( 11.7016, 9.45887 )
 polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
 
 [node name="leftCone" type="Polygon2D" parent="Camera2D/UI/visible"]
 position = Vector2( 265.322, 40.2532 )
-color = Color( 0, 0.623529, 1, 0.435294 )
+color = Color( 0, 0.623529, 1, 1 )
 offset = Vector2( 11.7016, 9.45887 )
 polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
 
 [node name="frontCone" type="Polygon2D" parent="Camera2D/UI/visible"]
 position = Vector2( 1.78149, -42.7068 )
-color = Color( 1, 0.141176, 0, 0.435294 )
+color = Color( 1, 0.141176, 0, 1 )
 polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
 
 [node name="bacteriaEgg" type="Sprite" parent="Camera2D/UI/visible"]
@@ -584,10 +563,10 @@ __meta__ = {
 }
 
 [node name="markerColor" type="ColorPicker" parent="Camera2D/UI/menu"]
-margin_left = 115.223
-margin_top = 88.8253
-margin_right = 707.223
-margin_bottom = 550.825
+margin_left = 96.0514
+margin_top = 72.7458
+margin_right = 688.051
+margin_bottom = 534.746
 rect_scale = Vector2( 0.1, 0.1 )
 edit_alpha = false
 hsv_mode = true
@@ -612,6 +591,7 @@ pause_mode = 1
 script = ExtResource( 10 )
 
 [node name="RBorder2" type="ColorRect" parent="Borders"]
+visible = false
 margin_left = 1499.0
 margin_top = -1500.0
 margin_right = 1657.0
@@ -622,6 +602,7 @@ __meta__ = {
 }
 
 [node name="LBorder2" type="ColorRect" parent="Borders"]
+visible = false
 margin_left = -1712.0
 margin_top = -1500.0
 margin_right = -1500.0
@@ -632,6 +613,7 @@ __meta__ = {
 }
 
 [node name="TBorder2" type="ColorRect" parent="Borders"]
+visible = false
 margin_left = -1500.0
 margin_top = -1721.0
 margin_right = 1500.0
@@ -642,6 +624,7 @@ __meta__ = {
 }
 
 [node name="BBorder2" type="ColorRect" parent="Borders"]
+visible = false
 margin_left = -1500.0
 margin_top = 1499.0
 margin_right = 1501.0
@@ -656,7 +639,7 @@ margin_left = -1501.0
 margin_top = -1500.0
 margin_right = -1499.0
 margin_bottom = 1501.0
-color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+color = Color( 0.800781, 0.800781, 0.800781, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -666,7 +649,7 @@ margin_left = 1499.0
 margin_top = -1500.0
 margin_right = 1501.0
 margin_bottom = 1500.0
-color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+color = Color( 0.800781, 0.800781, 0.800781, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -676,7 +659,7 @@ margin_left = -1500.0
 margin_top = -1500.0
 margin_right = 1500.0
 margin_bottom = -1498.0
-color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+color = Color( 0.800781, 0.800781, 0.800781, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -686,7 +669,7 @@ margin_left = -1500.0
 margin_top = 1499.0
 margin_right = 1501.0
 margin_bottom = 1501.0
-color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+color = Color( 0.800781, 0.800781, 0.800781, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
