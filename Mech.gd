@@ -17,7 +17,8 @@ func _process(delta: float) -> void:
 		aim.default_color = Color(0.101961, 1, 0, 0.466667)
 	else:
 		aim.default_color = Color(1, 0, 0, 0.466667)
-	get_tree().paused = false
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = !get_tree().paused
 	if Input.is_action_pressed("left"):
 		base.rotation = lerp_angle(base.rotation, deg2rad(-90), 0.5)
 		frame += delta * 10

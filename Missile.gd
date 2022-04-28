@@ -4,9 +4,19 @@ var velocity = Vector2(0, 0)
 
 onready var homing = $homingArea
 
+onready var particles = $Particles2D
+
 var target = null
 
+var shouldEmit = true
+
 func _process(delta: float) -> void:
+	var fps = Engine.get_frames_per_second()
+	if fps < 15:
+		shouldEmit = false
+	if fps > 45:
+		shouldEmit = true
+	particles.emitting = shouldEmit
 	if !get_tree().paused:
 		position += velocity * delta
 		if !is_instance_valid(target):
