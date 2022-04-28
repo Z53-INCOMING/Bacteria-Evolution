@@ -23,7 +23,11 @@ func _process(_delta: float) -> void:
 #	if is_instance_valid(target):
 #		head.rotation = target.global_position.angle_to_point(global_position)
 #		firing = true
-	head.look_at(get_global_mouse_position())
+	if Globals.mouseType == "Mouse":
+		head.look_at(get_global_mouse_position())
+	else:
+		if Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)).length() > 0.3:
+			head.rotation = Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)).angle()
 	firing = Input.is_action_pressed("follow")
 	
 	if firing:

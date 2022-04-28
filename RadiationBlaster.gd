@@ -9,12 +9,20 @@ var mutateTimer = 0.05
 func _process(delta: float) -> void:
 	current = true
 	get_tree().paused = false
-	radiationBlaster.global_position = get_global_mouse_position()
-	radiationBlaster.rotation = get_local_mouse_position().angle()
-	if get_local_mouse_position().length() > 80.0:
-		var strength = (get_local_mouse_position().length() / 182.0)
-		var direction = get_local_mouse_position().angle()
-		position += Vector2(cos(direction), sin(direction)) * strength * delta * 300
+	if Globals.mouseType == "Mouse":
+		radiationBlaster.global_position = get_global_mouse_position()
+		radiationBlaster.rotation = get_local_mouse_position().angle()
+		if get_local_mouse_position().length() > 80.0:
+			var strength = (get_local_mouse_position().length() / 182.0)
+			var direction = get_local_mouse_position().angle()
+			position += Vector2(cos(direction), sin(direction)) * strength * delta * 300
+	else:
+		radiationBlaster.position = Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)) * 180
+		radiationBlaster.rotation = Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)).angle()
+		if radiationBlaster.position.length() > 80.0:
+			var strength = ((Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)) * 180.0).length() / 182.0)
+			var direction = Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)).angle()
+			position += Vector2(cos(direction), sin(direction)) * strength * delta * 300
 	radiationBlaster.scale.y = sign(get_local_mouse_position().x)
 	mutateTimer -= delta
 	if mutateTimer < 0.0:

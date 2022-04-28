@@ -17,7 +17,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	get_tree().paused = false
-	var dir = get_global_mouse_position().angle_to_point(pos)
+	var dir = 0.0
+	if Globals.mouseType == "Mouse":
+		dir = get_global_mouse_position().angle_to_point(pos)
+	else:
+		if Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)).length() > 0.3:
+			dir = Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)).angle()
 	pos += Vector2(cos(dir), sin(dir)) * 2.5
 	path.curve.add_point(pos)
 	if get_length() > length * 8:

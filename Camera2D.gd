@@ -96,7 +96,7 @@ func _process(delta: float) -> void:
 				get_tree().paused = true
 		if Input.is_action_just_pressed("spike pit"):
 			var sp = spScene.instance()
-			sp.global_position = get_global_mouse_position()
+			sp.global_position = mouse.global_position
 			get_parent().add_child(sp)
 		
 		visibleNode.visible = false
@@ -288,11 +288,11 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_pressed("spawn food"):
 			var f = fScene.instance()
-			f.global_position = get_global_mouse_position()
+			f.global_position = mouse.global_position
 			get_parent().Food.add_child(f)
 		if Input.is_action_just_pressed("spawn bacteria"):
 			var b = bScene.instance()
-			b.global_position = get_global_mouse_position()
+			b.global_position = mouse.global_position
 			match int(round(rand_range(1.0, 3.0))):
 				1:
 					b.onLeft = -1
@@ -354,13 +354,13 @@ func _process(delta: float) -> void:
 		else:
 			mouse.global_position += Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)) * zoom.x * 50 * delta
 		if Input.is_action_just_pressed("blue"):
-			get_parent().get_child(8).global_position = get_global_mouse_position()
+			get_parent().get_child(8).global_position = mouse.global_position
 		if Input.is_action_just_pressed("orange"):
-			get_parent().get_child(9).global_position = get_global_mouse_position()
+			get_parent().get_child(9).global_position = mouse.global_position
 		if Input.is_action_pressed("blue"):
-			get_parent().get_child(8).global_rotation = get_global_mouse_position().angle_to_point(get_parent().get_child(8).global_position)
+			get_parent().get_child(8).global_rotation = mouse.global_position.angle_to_point(get_parent().get_child(8).global_position)
 		if Input.is_action_pressed("orange"):
-			get_parent().get_child(9).global_rotation = get_global_mouse_position().angle_to_point(get_parent().get_child(9).global_position)
+			get_parent().get_child(9).global_rotation = mouse.global_position.angle_to_point(get_parent().get_child(9).global_position)
 
 func _on_parent_button_down() -> void:
 	if is_instance_valid(following) and is_instance_valid(following.parent):
@@ -416,7 +416,7 @@ func weapon(input: String, scene: PackedScene):
 			if detectedChild != input:
 				var weapon = scene.instance()
 				if "global_position" in weapon:
-					weapon.global_position = get_global_mouse_position()
+					weapon.global_position = mouse.global_position
 				get_parent().add_child(weapon)
 				disabled = true
 

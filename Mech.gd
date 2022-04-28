@@ -37,7 +37,11 @@ func _process(delta: float) -> void:
 	if frame > 2.0:
 		frame = 0.0
 	base.frame = int(round(frame))
-	turret.rotation = get_global_mouse_position().angle_to_point(turret.global_position)
+	if Globals.mouseType == "Mouse":
+		turret.look_at(get_global_mouse_position())
+	else:
+		if Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)).length() > 0.3:
+			turret.rotation = Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)).angle()
 	if Input.is_action_just_pressed("follow"):
 		var missile = missileScene.instance()
 		missile.global_transform = nozzle.global_transform
