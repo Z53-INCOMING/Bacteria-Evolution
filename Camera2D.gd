@@ -193,7 +193,7 @@ func _process(delta: float) -> void:
 			scaleLabel.text = "Scale: " + str(following.scale.x)
 			childrenLabel.text = "Children: " + str(round(following.children))
 			parentLabel.text = "None"
-			if round(following.timeAlive) != round(get_parent().time):
+			if !abs(following.timeAlive - get_parent().time) < 3.0:
 				var parentName = following.parentName
 				parentName = parentName.replace("@", "")
 				parentName = parentName.replace("0", "")
@@ -345,7 +345,14 @@ func _process(delta: float) -> void:
 			if position.y < -space:
 				position.y += space * 2
 		
-		mouse.global_position = get_global_mouse_position()
+		if Input.is_action_pressed("mouse"):
+			Globals.mouseType = "Joy"
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		if Globals.mouseType == "Mouse":
+			mouse.global_position = get_global_mouse_position()
+		else:
+			mouse.global_position += Vector2(Input.get_joy_axis(0, 2), Input.get_joy_axis(0, 3)) * zoom.x * 50 * delta
 		if Input.is_action_just_pressed("blue"):
 			get_parent().get_child(8).global_position = get_global_mouse_position()
 		if Input.is_action_just_pressed("orange"):
@@ -412,3 +419,8 @@ func weapon(input: String, scene: PackedScene):
 					weapon.global_position = get_global_mouse_position()
 				get_parent().add_child(weapon)
 				disabled = true
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		Globals.mouseType = "Mouse"
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

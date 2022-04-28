@@ -172,21 +172,24 @@ func _on_ExpensiveCalculationCycle_timeout() -> void:
 	if Bacteria.get_child_count() != 0:
 		var average = 0.0
 		for b in Bacteria.get_children():
-			average += b.scale.x
+			if is_instance_valid(b):
+				average += b.scale.x
 		scaledPopulation = average
 		average = average / Bacteria.get_child_count()
 		scaleLabel.text = "Scale: " + str(round(average * 100) / 100)
 		average = 0.0
 		for b in Bacteria.get_children():
-			average += b.children
+			if is_instance_valid(b):
+				average += b.children
 		average = average / Bacteria.get_child_count()
 		childrenLabel.text = "Children: " + str(round(average))
 		average = 0.0
 		var numOfEggLayers = 0
 		for b in Bacteria.get_children():
-			if b.oviparous:
-				average += b.gestationPeriod
-				numOfEggLayers += 1
+			if is_instance_valid(b):
+				if b.oviparous:
+					average += b.gestationPeriod
+					numOfEggLayers += 1
 		if numOfEggLayers != 0:
 			average = average / numOfEggLayers
 		else:
@@ -194,8 +197,9 @@ func _on_ExpensiveCalculationCycle_timeout() -> void:
 		gestationLabel.text = "Gestation Period: " + str(round(average * 10) / 10)
 		var oviSmart = 0
 		for b in Bacteria.get_children():
-			if b.oviparous and b.smart:
-				oviSmart += 1
+			if is_instance_valid(b):
+				if b.oviparous and b.smart:
+					oviSmart += 1
 		oviSmartLabel.text = "Oviparous And Smart: " + str(oviSmart)
 
 func message(icon, identifier):
