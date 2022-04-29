@@ -1,0 +1,486 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Tutorial.gd" type="Script" id=1]
+[ext_resource path="res://text.tres" type="DynamicFont" id=2]
+[ext_resource path="res://bacteriaFinal.png" type="Texture" id=3]
+[ext_resource path="res://bacteriaBasicBrain.png" type="Texture" id=4]
+[ext_resource path="res://bacteriaBrain.png" type="Texture" id=5]
+[ext_resource path="res://bacteriaEggSac.png" type="Texture" id=8]
+[ext_resource path="res://bacteriaToxicEggSac.png" type="Texture" id=9]
+[ext_resource path="res://bacteriaEgg.png" type="Texture" id=10]
+[ext_resource path="res://bacteriaResistance.png" type="Texture" id=11]
+[ext_resource path="res://foodPellet.png" type="Texture" id=12]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+smoothing_enabled = true
+smoothing_speed = 3.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+pause_mode = 2
+environment = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 91.7146
+margin_top = 19.1392
+margin_right = 236.715
+margin_bottom = 48.1392
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "To start, let's look at a bacterium's anatomy."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal" type="Sprite" parent="."]
+position = Vector2( 160, 102 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain" type="Sprite" parent="."]
+position = Vector2( 160, 102 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 50.428
+margin_top = 199.0
+margin_right = 261.428
+margin_bottom = 244.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The white thing at the front is the nucleus. Its like the brain of a human."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal2" type="Sprite" parent="."]
+position = Vector2( 160, 282 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain2" type="Sprite" parent="."]
+position = Vector2( 160, 282 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 50.8842
+margin_top = 378.224
+margin_right = 270.884
+margin_bottom = 423.224
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "If it's pink, that means it IS a brain. This means it follows food perfectly."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal3" type="Sprite" parent="."]
+position = Vector2( 160, 462 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain3" type="Sprite" parent="."]
+position = Vector2( 160, 462 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+hframes = 4
+frame = 1
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 50.8842
+margin_top = 558.224
+margin_right = 270.884
+margin_bottom = 603.224
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "If it's empty, that means they avoid food."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal4" type="Sprite" parent="."]
+position = Vector2( 160, 642 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain4" type="Sprite" parent="."]
+visible = false
+position = Vector2( 160, 642 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+hframes = 4
+frame = 1
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 50.8842
+margin_top = 738.224
+margin_right = 270.884
+margin_bottom = 783.224
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Lets look at the back. You can see there is a black circle. This is their reproductive organ."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal5" type="Sprite" parent="."]
+position = Vector2( 160, 822 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain5" type="Sprite" parent="."]
+position = Vector2( 160, 822 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 901.0
+margin_right = 300.0
+margin_bottom = 979.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "If it is black, this means they reproduce the default way. (They glow for a brief second, and a new bacteria is spawned at their location.)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal6" type="Sprite" parent="."]
+position = Vector2( 160, 1002 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain6" type="Sprite" parent="."]
+position = Vector2( 160, 1002 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="Label7" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 1081.0
+margin_right = 300.0
+margin_bottom = 1159.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "If it looks like this, that means its an egg sac! This means they will lay two eggs when they reproduce. (Technically, they produce the eggs and store them in the sac but only lay them when there's no bacteria nearby.)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal7" type="Sprite" parent="."]
+position = Vector2( 160, 1182 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain7" type="Sprite" parent="."]
+position = Vector2( 160, 1182 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaBasicBrain8" type="Sprite" parent="."]
+position = Vector2( 160, 1182 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="Label8" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 1261.0
+margin_right = 300.0
+margin_bottom = 1339.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Next, lets talk about size. There are 19 sizes. (min 0.2, max 2.0, step 0.1) There are 4 sprite changes. The megas are 1.6 - 2.0, The normies are 0.6 - 1.5, the micros are 0.3 - 0.5 and the nanos are only 0.2."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal8" type="Sprite" parent="."]
+position = Vector2( 55.0489, 1369.37 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 2
+
+[node name="bacteriaFinal9" type="Sprite" parent="."]
+position = Vector2( 156.841, 1369.37 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaFinal10" type="Sprite" parent="."]
+position = Vector2( 213.002, 1369.37 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 8
+
+[node name="bacteriaFinal11" type="Sprite" parent="."]
+position = Vector2( 255.474, 1369.37 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 11
+
+[node name="Label9" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 1441.0
+margin_right = 300.0
+margin_bottom = 1519.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Thats about it for anatomy. Just a few more things. 1: The membrane. usually it looks like this,"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal12" type="Sprite" parent="."]
+position = Vector2( 160, 1542 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain9" type="Sprite" parent="."]
+visible = false
+position = Vector2( 160, 1542 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaBasicBrain10" type="Sprite" parent="."]
+position = Vector2( 160, 1542 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="Label10" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 1621.0
+margin_right = 300.0
+margin_bottom = 1699.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "but sometimes it can look like this! This means the bacteria is resistant and can endure the toxins."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal13" type="Sprite" parent="."]
+position = Vector2( 160, 1722 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain11" type="Sprite" parent="."]
+position = Vector2( 160, 1722 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 11 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaBasicBrain12" type="Sprite" parent="."]
+position = Vector2( 160, 1722 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 4 )
+hframes = 4
+frame = 1
+
+[node name="Label11" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 1801.0
+margin_right = 300.0
+margin_bottom = 1879.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "What toxins? These toxins! Oviparous (egg laying) bacteria can specialize to produce toxins with their eggs."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteriaFinal14" type="Sprite" parent="."]
+position = Vector2( 194.734, 1902 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="bacteriaBasicBrain13" type="Sprite" parent="."]
+position = Vector2( 94.8509, 1893.89 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 5
+
+[node name="bacteriaBasicBrain15" type="Sprite" parent="."]
+position = Vector2( 105.749, 1917.38 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 5
+
+[node name="bacteriaBasicBrain14" type="Sprite" parent="."]
+position = Vector2( 194.734, 1902 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 9 )
+hframes = 4
+frame = 1
+
+[node name="Label12" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 1981.0
+margin_right = 300.0
+margin_bottom = 2059.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Okay. Thats it for anatomy. Now on to sim stuff. The bacteria have a food counter. It costs 1 food per second to stay alive. This is multiplied by scale, so a big creature needs 2 food to survive 1 second and a small creature needs 1 food to survive 5 seconds."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="food" type="Sprite" parent="."]
+position = Vector2( 194.734, 2088.55 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 5
+
+[node name="bacteria" type="Sprite" parent="."]
+position = Vector2( 102.829, 2089.66 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="brain" type="Sprite" parent="."]
+position = Vector2( 102.829, 2089.66 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+hframes = 4
+frame = 1
+
+[node name="Label13" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 2161.0
+margin_right = 300.0
+margin_bottom = 2254.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "When it reaches 0, they take damage:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hurt bacteria3" type="Sprite" parent="."]
+position = Vector2( 206.466, 2253.67 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 3
+
+[node name="hurt bacteria2" type="Sprite" parent="."]
+position = Vector2( 143.242, 2254.78 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 4
+
+[node name="hurt bacteria1" type="Sprite" parent="."]
+position = Vector2( 74.1488, 2254.78 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 98.1224
+margin_top = 2421.0
+margin_right = 184.122
+margin_bottom = 2509.0
+color = Color( 0.0431373, 0.0431373, 0.0431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label14" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 2341.0
+margin_right = 300.0
+margin_bottom = 2434.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "when it reaches 30, they spend 12 to reproduce: I told you there'd be glow! It doesn't look great on a white background, I'll put a dark gray rectangle behind it so you can see better."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="child" type="Sprite" parent="."]
+position = Vector2( 141.099, 2452.82 )
+rotation = -0.305259
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="reproducing bacteria" type="Sprite" parent="."]
+modulate = Color( 2, 2, 2, 1 )
+position = Vector2( 151.041, 2466.73 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5

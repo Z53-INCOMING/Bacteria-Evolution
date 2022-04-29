@@ -48,3 +48,8 @@ func _on_create_button_down() -> void:
 	Globals.sharpness = 7 + (sharpnessBar.value * -2)
 	
 	SceneChanger.go_to_scene("res://World.tscn", self)
+
+
+
+func _on_Tutorial_button_down() -> void:
+	get_tree().change_scene("res://Tutorial.tscn")

@@ -29,15 +29,15 @@ pause_mode = 2
 script = ExtResource( 7 )
 
 [node name="sharpnessVisual" type="Sprite" parent="."]
-position = Vector2( 108.71, 9.57906 )
+position = Vector2( 108.83, 9.57906 )
 texture = ExtResource( 4 )
 hframes = 7
 frame = 3
 
 [node name="sharpnessBar" type="HScrollBar" parent="."]
-margin_left = 100.0
+margin_left = 100.12
 margin_top = 19.5791
-margin_right = 1060.0
+margin_right = 1060.12
 margin_bottom = 115.579
 rect_scale = Vector2( 0.125, 0.125 )
 hint_tooltip = "Controls the sharpness of the food clumps. Is the edge clear as day or is the clump a cloud?"
@@ -54,14 +54,14 @@ __meta__ = {
 }
 
 [node name="periodVisual" type="Sprite" parent="."]
-position = Vector2( 108.71, 60.8903 )
+position = Vector2( 108.83, 60.8903 )
 texture = ExtResource( 5 )
 hframes = 5
 
 [node name="periodBar" type="HScrollBar" parent="."]
-margin_left = 100.0
+margin_left = 100.12
 margin_top = 70.8903
-margin_right = 1060.0
+margin_right = 1060.12
 margin_bottom = 166.89
 rect_scale = Vector2( 0.125, 0.125 )
 hint_tooltip = "Controls the size of the clumps of food pellets."
@@ -78,15 +78,15 @@ __meta__ = {
 }
 
 [node name="mapVisual" type="Sprite" parent="."]
-position = Vector2( 108.71, 108.834 )
+position = Vector2( 108.83, 108.834 )
 texture = ExtResource( 6 )
 hframes = 5
 frame = 2
 
 [node name="mapBar" type="HScrollBar" parent="."]
-margin_left = 100.0
+margin_left = 100.12
 margin_top = 118.834
-margin_right = 1060.0
+margin_right = 1060.12
 margin_bottom = 214.834
 rect_scale = Vector2( 0.125, 0.125 )
 hint_tooltip = "Controls the size of the map."
@@ -107,9 +107,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 120.021
+margin_left = 120.141
 margin_top = 144.0
-margin_right = 200.021
+margin_right = 200.141
 margin_bottom = 174.0
 hint_tooltip = "Creates the world with the current settings."
 focus_neighbour_top = NodePath("../mapBar")
@@ -124,9 +124,9 @@ __meta__ = {
 }
 
 [node name="label" type="Label" parent="."]
-margin_left = 118.0
+margin_left = 118.12
 margin_top = 4.0
-margin_right = 219.0
+margin_right = 266.12
 margin_bottom = 18.0
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -136,9 +136,9 @@ __meta__ = {
 }
 
 [node name="label2" type="Label" parent="."]
-margin_left = 118.0
+margin_left = 118.12
 margin_top = 54.8318
-margin_right = 266.0
+margin_right = 266.12
 margin_bottom = 68.8318
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -148,9 +148,9 @@ __meta__ = {
 }
 
 [node name="label3" type="Label" parent="."]
-margin_left = 118.0
+margin_left = 118.12
 margin_top = 102.611
-margin_right = 266.0
+margin_right = 266.12
 margin_bottom = 116.611
 custom_fonts/font = ExtResource( 11 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -159,4 +159,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tutorial" type="Button" parent="."]
+margin_left = 3.62427
+margin_top = 4.80426
+margin_right = 63.6243
+margin_bottom = 24.8043
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_down" from="create" to="." method="_on_create_button_down"]
+[connection signal="button_down" from="Tutorial" to="." method="_on_Tutorial_button_down"]
