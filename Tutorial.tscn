@@ -378,19 +378,6 @@ texture = ExtResource( 9 )
 hframes = 4
 frame = 1
 
-[node name="Label12" type="Label" parent="."]
-margin_left = 7.0
-margin_top = 1981.0
-margin_right = 300.0
-margin_bottom = 2059.0
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Okay. Thats it for anatomy. Now on to sim stuff. The bacteria have a food counter. It costs 1 food per second to stay alive. This is multiplied by scale, so a big creature needs 2 food to survive 1 second and a small creature needs 1 food to survive 5 seconds."
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="food" type="Sprite" parent="."]
 position = Vector2( 194.734, 2088.55 )
 scale = Vector2( 3, 3 )
@@ -411,6 +398,19 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
 hframes = 4
 frame = 1
+
+[node name="Label12" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 1981.0
+margin_right = 300.0
+margin_bottom = 2090.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Okay. Thats it for anatomy. Now on to sim stuff. The bacteria have a food counter. It costs 1 food per second to stay alive. This is multiplied by scale, so a big creature needs 2 food to survive 1 second and a small creature needs 1 food to survive 5 seconds. 1 food pellet = 2 food points"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label13" type="Label" parent="."]
 margin_left = 7.0
@@ -484,3 +484,645 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 hframes = 12
 frame = 5
+
+[node name="Label15" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 2521.0
+margin_right = 300.0
+margin_bottom = 2614.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Bacteria that were made the normal way start with 15 food. Eggs are different. When eggs hatch their gestation period dictates how much food they start with."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oviparous" type="Sprite" parent="."]
+position = Vector2( 206, 2613 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="normal" type="Sprite" parent="."]
+position = Vector2( 74.1488, 2614.78 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="foodPellet" type="Sprite" parent="."]
+position = Vector2( 195.587, 2640.77 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet4" type="Sprite" parent="."]
+position = Vector2( 71.6081, 2648.97 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet2" type="Sprite" parent="."]
+position = Vector2( 211.984, 2643.17 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet3" type="Sprite" parent="."]
+position = Vector2( 202.585, 2654.97 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="bacteriaEggSac" type="Sprite" parent="."]
+position = Vector2( 206, 2613 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+hframes = 4
+frame = 1
+
+[node name="Label16" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 2701.0
+margin_right = 300.0
+margin_bottom = 2794.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The gestation range is 5 seconds to 30. 5 seconds grants you 15 food, 30 seconds grants you 40 food. (gestation in seconds + 5)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="oviparous2" type="Sprite" parent="."]
+position = Vector2( 206, 2793 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="normal2" type="Sprite" parent="."]
+position = Vector2( 74.1488, 2794.78 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="foodPellet5" type="Sprite" parent="."]
+position = Vector2( 195.587, 2820.77 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet6" type="Sprite" parent="."]
+position = Vector2( 71.6081, 2828.97 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet7" type="Sprite" parent="."]
+position = Vector2( 211.984, 2823.17 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet8" type="Sprite" parent="."]
+position = Vector2( 202.585, 2834.97 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="bacteriaEggSac2" type="Sprite" parent="."]
+position = Vector2( 206, 2793 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+hframes = 4
+frame = 1
+
+[node name="Label17" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 2881.0
+margin_right = 300.0
+margin_bottom = 2974.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Then, why isn't every bacteria oviparous with max gestation? My sim runs on the main philosophy of risk and reward. Every gene has both."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="risk" type="Label" parent="."]
+margin_left = 87.0
+margin_top = 2940.0
+margin_right = 119.0
+margin_bottom = 2953.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "risk:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reward" type="Label" parent="."]
+margin_left = 220.133
+margin_top = 2941.37
+margin_right = 273.133
+margin_bottom = 2954.37
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "reward:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="egg eater" type="Sprite" parent="."]
+position = Vector2( 63.263, 2988.9 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="resistance" type="Sprite" parent="."]
+position = Vector2( 63.263, 2988.9 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 11 )
+hframes = 4
+frame = 1
+
+[node name="egg" type="Sprite" parent="."]
+position = Vector2( 140.025, 2980.09 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 1
+
+[node name="egg2" type="Sprite" parent="."]
+position = Vector2( 136.753, 2996.23 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 1
+
+[node name="foodPellet9" type="Sprite" parent="."]
+position = Vector2( 237.033, 2986.15 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet11" type="Sprite" parent="."]
+position = Vector2( 253.43, 2988.55 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet12" type="Sprite" parent="."]
+position = Vector2( 244.032, 3000.35 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Label18" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 3061.0
+margin_right = 300.0
+margin_bottom = 3154.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The risk of being oviparous is that predators can eat your eggs. The reward is a child who can immediately reproduce if you evolve it right."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="risk2" type="Label" parent="."]
+margin_left = 87.0
+margin_top = 3131.81
+margin_right = 119.0
+margin_bottom = 3144.81
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "risk:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reward2" type="Label" parent="."]
+margin_left = 220.133
+margin_top = 3133.18
+margin_right = 273.133
+margin_bottom = 3146.18
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "reward:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="egg eater2" type="Sprite" parent="."]
+position = Vector2( 63.263, 3168.9 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="resistance2" type="Sprite" parent="."]
+position = Vector2( 63.263, 3168.9 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 11 )
+hframes = 4
+frame = 1
+
+[node name="egg3" type="Sprite" parent="."]
+position = Vector2( 140.025, 3160.09 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 1
+
+[node name="egg4" type="Sprite" parent="."]
+position = Vector2( 136.753, 3176.23 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 1
+
+[node name="foodPellet10" type="Sprite" parent="."]
+position = Vector2( 237.033, 3166.15 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet13" type="Sprite" parent="."]
+position = Vector2( 253.43, 3168.55 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet14" type="Sprite" parent="."]
+position = Vector2( 244.032, 3180.35 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Label19" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 3241.39
+margin_right = 300.0
+margin_bottom = 3334.39
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The risk of toxic eggs is that it costs more to reproduce. But the reward is pretty obvious. Not as many predators can eat your eggs."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="risk3" type="Label" parent="."]
+margin_left = 82.0611
+margin_top = 3313.56
+margin_right = 113.061
+margin_bottom = 3326.56
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "risk:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative" type="Label" parent="."]
+margin_left = 67.0475
+margin_top = 3327.22
+margin_right = 73.0475
+margin_bottom = 3340.22
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative2" type="Label" parent="."]
+margin_left = 97.7912
+margin_top = 3339.22
+margin_right = 103.791
+margin_bottom = 3352.22
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative4" type="Label" parent="."]
+margin_left = 233.149
+margin_top = 3346.83
+margin_right = 239.149
+margin_bottom = 3359.83
+rect_rotation = 14.7731
+rect_scale = Vector2( 6, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative5" type="Label" parent="."]
+margin_left = 240.765
+margin_top = 3335.06
+margin_right = 246.765
+margin_bottom = 3348.06
+rect_rotation = 14.7731
+rect_scale = Vector2( 8, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative6" type="Label" parent="."]
+margin_left = 239.9
+margin_top = 3322.08
+margin_right = 245.9
+margin_bottom = 3335.08
+rect_rotation = 14.7731
+rect_scale = Vector2( 5, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative3" type="Label" parent="."]
+margin_left = 64.6826
+margin_top = 3356.11
+margin_right = 70.6826
+margin_bottom = 3369.11
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reward3" type="Label" parent="."]
+margin_left = 220.133
+margin_top = 3313.18
+margin_right = 273.133
+margin_bottom = 3326.18
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "reward:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="message" type="Label" parent="."]
+margin_left = 187.591
+margin_top = 3365.8
+margin_right = 240.591
+margin_bottom = 3378.8
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Run!!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="egg eater3" type="Sprite" parent="."]
+position = Vector2( 208.213, 3345.78 )
+rotation = -2.9041
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 5
+
+[node name="egg5" type="Sprite" parent="."]
+position = Vector2( 285.84, 3340.09 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 5
+
+[node name="egg6" type="Sprite" parent="."]
+position = Vector2( 282.568, 3356.23 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 8
+frame = 5
+
+[node name="foodPellet15" type="Sprite" parent="."]
+position = Vector2( 90.9515, 3346.15 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet16" type="Sprite" parent="."]
+position = Vector2( 120.356, 3358.18 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet17" type="Sprite" parent="."]
+position = Vector2( 87.815, 3375.72 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Label20" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 3421.39
+margin_right = 300.0
+margin_bottom = 3514.39
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The risk of size is that you can die quicker. The reward is that you're faster and can see further. For being small, its the opposite. The risk is your sight and speed, the reward is psuedo-immortality."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="risk4" type="Label" parent="."]
+margin_left = 82.0611
+margin_top = 3501.24
+margin_right = 113.061
+margin_bottom = 3514.24
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "risk:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative7" type="Label" parent="."]
+margin_left = 67.0475
+margin_top = 3514.91
+margin_right = 73.0475
+margin_bottom = 3527.91
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative8" type="Label" parent="."]
+margin_left = 97.7912
+margin_top = 3526.9
+margin_right = 103.791
+margin_bottom = 3539.9
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative9" type="Label" parent="."]
+margin_left = 251.194
+margin_top = 3537.99
+margin_right = 257.194
+margin_bottom = 3550.99
+rect_rotation = 14.7731
+rect_scale = Vector2( 6, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative10" type="Label" parent="."]
+margin_left = 258.811
+margin_top = 3526.22
+margin_right = 264.811
+margin_bottom = 3539.22
+rect_rotation = 14.7731
+rect_scale = Vector2( 8, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative11" type="Label" parent="."]
+margin_left = 257.945
+margin_top = 3513.24
+margin_right = 263.945
+margin_bottom = 3526.24
+rect_rotation = 14.7731
+rect_scale = Vector2( 5, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="negative12" type="Label" parent="."]
+margin_left = 64.6826
+margin_top = 3543.79
+margin_right = 70.6826
+margin_bottom = 3556.79
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reward4" type="Label" parent="."]
+margin_left = 220.133
+margin_top = 3493.18
+margin_right = 273.133
+margin_bottom = 3506.18
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "reward:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="message2" type="Label" parent="."]
+margin_left = 197.089
+margin_top = 3562.19
+margin_right = 250.089
+margin_bottom = 3575.19
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Weeee!!"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="egg eater4" type="Sprite" parent="."]
+position = Vector2( 226.258, 3536.94 )
+rotation = -2.9041
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+hframes = 12
+frame = 2
+
+[node name="foodPellet18" type="Sprite" parent="."]
+position = Vector2( 90.9515, 3533.84 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet19" type="Sprite" parent="."]
+position = Vector2( 120.356, 3545.86 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="foodPellet20" type="Sprite" parent="."]
+position = Vector2( 87.815, 3563.41 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Button" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 3626.0
+margin_right = 233.0
+margin_bottom = 3735.0
+text = "Thats all for now, sorry."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
