@@ -100,19 +100,19 @@ polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856
 [node name="bacteriaEgg" type="Sprite" parent="."]
 position = Vector2( 174.922, 107.25 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 4
 frame = 1
 
 [node name="bacteriaEgg3" type="Sprite" parent="."]
 position = Vector2( 160.244, 91.6488 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 4
 frame = 1
 
 [node name="bacteriaEgg2" type="Sprite" parent="."]
 position = Vector2( 145.468, 106.693 )
 texture = ExtResource( 1 )
-hframes = 8
+hframes = 4
 frame = 1
 
 [node name="right" type="Sprite" parent="."]

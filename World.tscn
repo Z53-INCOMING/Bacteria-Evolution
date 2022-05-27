@@ -435,19 +435,19 @@ polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856
 [node name="bacteriaEgg" type="Sprite" parent="Camera2D/UI/visible"]
 position = Vector2( 307.118, 54.3451 )
 texture = ExtResource( 8 )
-hframes = 8
+hframes = 4
 frame = 1
 
 [node name="bacteriaEgg3" type="Sprite" parent="Camera2D/UI/visible"]
 position = Vector2( 292.44, 38.7439 )
 texture = ExtResource( 8 )
-hframes = 8
+hframes = 4
 frame = 1
 
 [node name="bacteriaEgg2" type="Sprite" parent="Camera2D/UI/visible"]
 position = Vector2( 277.664, 53.7877 )
 texture = ExtResource( 8 )
-hframes = 8
+hframes = 4
 frame = 1
 
 [node name="right" type="Sprite" parent="Camera2D/UI/visible"]
@@ -566,10 +566,10 @@ __meta__ = {
 }
 
 [node name="markerColor" type="ColorPicker" parent="Camera2D/UI/menu"]
-margin_left = 85.9997
-margin_top = 50.8428
-margin_right = 570.0
-margin_bottom = 505.843
+margin_left = 89.9997
+margin_top = 54.8428
+margin_right = 574.0
+margin_bottom = 509.843
 rect_scale = Vector2( 0.15, 0.15 )
 color = Color( 0, 0, 0, 0.329412 )
 hsv_mode = true

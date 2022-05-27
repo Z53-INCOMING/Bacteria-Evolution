@@ -184,6 +184,9 @@ func loadBacterium():
 	onEggForward = int(onEggForward)
 	
 	visual.modulate = color
+	basicBrain.modulate = color
+	fangs.modulate = color
+	
 
 func _process(delta: float) -> void:
 	visual.frame = (size * 3) + (health - 1)
@@ -251,6 +254,7 @@ func _process(delta: float) -> void:
 			if eggs > 0 and eggCooldown == 0.0:
 				modulate = Color.white * 2
 				var first = bacteriaScene.instance()
+				first.color = color
 				first.onRight = onRight
 				first.onLeft = onLeft
 				first.onForward = onForward
@@ -264,6 +268,7 @@ func _process(delta: float) -> void:
 				first.toxic = toxic
 				first.resistant = resistant
 				var second = bacteriaScene.instance()
+				second.color = color
 				second.onEggRight = onEggRight
 				second.onEggLeft = onEggLeft
 				second.onEggForward = onEggForward
@@ -289,6 +294,7 @@ func _process(delta: float) -> void:
 				firstEgg.bacteria = first
 				firstEgg.gestastionPeriod = gestationPeriod
 				firstEgg.toxic = toxic
+				firstEgg.color = color
 				var secondEgg = eggScene.instance()
 				secondEgg.global_position = global_position + (Vector2(rand_range(-15, 15), rand_range(-15, 15)) * scale)
 				secondEgg.frame = 3
@@ -301,6 +307,7 @@ func _process(delta: float) -> void:
 				secondEgg.bacteria = second
 				secondEgg.gestastionPeriod = gestationPeriod
 				secondEgg.toxic = toxic
+				secondEgg.color = color
 				main.add_child(firstEgg)
 				main.add_child(secondEgg)
 				eggs -= 2
@@ -335,6 +342,7 @@ func _process(delta: float) -> void:
 				bacteria.scale.x = scale.x
 				bacteria.parent = self
 				bacteria.resistant = resistant
+				bacteria.color = color
 				var main = get_parent()
 				main.add_child(bacteria)
 				food -= 12

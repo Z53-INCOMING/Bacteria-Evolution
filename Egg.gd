@@ -12,6 +12,8 @@ onready var visual = $visual
 
 onready var hitbox = $hitbox
 
+var color
+
 var toxic = false
 
 onready var nano = preload("res://NanoEgg.tres")
@@ -24,11 +26,11 @@ onready var mega = preload("res://MegaEgg.tres")
 
 var development = 0.0
 
+onready var overlay = $bacteriaEggToxicOverlay
+
 func _ready() -> void:
 	$Timer.start(gestastionPeriod)
 	visual.frame = frame
-	if toxic:
-		visual.frame += 4
 	match frame:
 		0:
 			hitbox.shape = mega
@@ -38,6 +40,9 @@ func _ready() -> void:
 			hitbox.shape = micro
 		3:
 			hitbox.shape = nano
+	overlay.frame = frame
+	overlay.visible = toxic
+	visual.modulate = color
 
 func _process(delta: float) -> void:
 	development += delta
