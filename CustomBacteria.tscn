@@ -251,7 +251,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Red" type="HSlider" parent="."]
+[node name="Hue" type="HSlider" parent="."]
 margin_left = 131.647
 margin_top = 124.017
 margin_right = 247.647
@@ -264,7 +264,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Green" type="HSlider" parent="."]
+[node name="Sat" type="HSlider" parent="."]
 margin_left = 131.647
 margin_top = 130.666
 margin_right = 247.647
@@ -277,7 +277,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Blue" type="HSlider" parent="."]
+[node name="Val" type="HSlider" parent="."]
 margin_left = 131.647
 margin_top = 138.037
 margin_right = 247.647

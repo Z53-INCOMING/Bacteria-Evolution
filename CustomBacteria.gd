@@ -7,9 +7,9 @@ onready var oviparousCheck = $oviparous
 onready var resistantCheck = $resistant
 onready var nameEdit = $name
 
-onready var red = $Red
-onready var green = $Green
-onready var blue = $Blue
+onready var hue = $Hue
+onready var sat = $Sat
+onready var val = $Val
 
 onready var eggLeftArrow = $left2
 onready var eggRightArrow = $right2
@@ -58,7 +58,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	syncDirections()
 	get_tree().paused = true
-	$bacteria.modulate = Color(red.value, green.value, blue.value, 1.0)
+	$bacteria.modulate = Color.from_hsv(hue.value, sat.value, val.value, 1.0)
 
 func _on_eggAvoid_button_down() -> void:
 	eggLeft = 1
@@ -102,6 +102,8 @@ func _on_create_button_down() -> void:
 	bacterium.onEggLeft = eggLeft
 	bacterium.onEggRight = eggRight
 	bacterium.onEggForward = eggFront
+	
+	bacterium.color = Color.from_hsv(hue.value, sat.value, val.value, 1.0)
 	
 	get_parent().Bacteria.add_child(bacterium)
 	get_parent().get_child(2).disabled = false
