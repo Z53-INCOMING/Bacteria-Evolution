@@ -189,6 +189,10 @@ func _process(delta: float) -> void:
 					front.rotation_degrees = 90
 			
 			foodLabel.text = "Food: " + str(round(following.food))
+			if following.food < 5:
+				foodLabel.modulate = Color.red
+			else:
+				foodLabel.modulate = Color.white
 			ageLabel.text = "Age: " + str(round(following.timeAlive))
 			scaleLabel.text = "Scale: " + str(following.scale.x)
 			childrenLabel.text = "Children: " + str(round(following.children))
