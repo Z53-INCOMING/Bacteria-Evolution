@@ -566,10 +566,10 @@ __meta__ = {
 }
 
 [node name="markerColor" type="ColorPicker" parent="Camera2D/UI/menu"]
-margin_left = 98.0
-margin_top = 63.0
-margin_right = 582.0
-margin_bottom = 518.0
+margin_left = 85.9997
+margin_top = 50.8428
+margin_right = 570.0
+margin_bottom = 505.843
 rect_scale = Vector2( 0.15, 0.15 )
 color = Color( 0, 0, 0, 0.329412 )
 hsv_mode = true

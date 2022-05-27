@@ -251,6 +251,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Red" type="HSlider" parent="."]
+margin_left = 131.647
+margin_top = 124.017
+margin_right = 247.647
+margin_bottom = 140.017
+rect_scale = Vector2( 0.5, 0.4 )
+max_value = 1.0
+step = 0.01
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Green" type="HSlider" parent="."]
+margin_left = 131.647
+margin_top = 130.666
+margin_right = 247.647
+margin_bottom = 146.666
+rect_scale = Vector2( 0.5, 0.4 )
+max_value = 1.0
+step = 0.01
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blue" type="HSlider" parent="."]
+margin_left = 131.647
+margin_top = 138.037
+margin_right = 247.647
+margin_bottom = 154.037
+rect_scale = Vector2( 0.5, 0.4 )
+max_value = 1.0
+step = 0.01
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_down" from="eggAvoid" to="." method="_on_eggAvoid_button_down"]
 [connection signal="button_down" from="eggFollow" to="." method="_on_eggFollow_button_down"]
 [connection signal="button_down" from="eggNothing" to="." method="_on_eggNothing_button_down"]

@@ -97,6 +97,7 @@ func bacteria(quantity):
 		bacteria.onEggLeft = round(rand_range(-2, 2))
 		bacteria.onEggForward = round(rand_range(-2, 2))
 		bacteria.scale.x = rand_range(0.2, 2.0)
+		bacteria.color = Color(rand_range(0.0, 1.0), rand_range(0.0, 1.0), rand_range(0.0, 1.0), 1.0)
 		if round(rand_range(0.0, 2.0)) == 0:
 			bacteria.oviparous = true
 		if round(rand_range(0.0, 9.0)) == 0.0:

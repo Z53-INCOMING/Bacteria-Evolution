@@ -7,6 +7,10 @@ onready var oviparousCheck = $oviparous
 onready var resistantCheck = $resistant
 onready var nameEdit = $name
 
+onready var red = $Red
+onready var green = $Green
+onready var blue = $Blue
+
 onready var eggLeftArrow = $left2
 onready var eggRightArrow = $right2
 onready var eggFrontArrow = $front2
@@ -54,6 +58,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	syncDirections()
 	get_tree().paused = true
+	$bacteria.modulate = Color(red.value, green.value, blue.value, 1.0)
 
 func _on_eggAvoid_button_down() -> void:
 	eggLeft = 1

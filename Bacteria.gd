@@ -6,6 +6,8 @@ extends Area2D
 
 var wander = OpenSimplexNoise.new()
 
+var color = Color.white
+
 var speed = 30
 
 var velocity = 0
@@ -180,6 +182,8 @@ func loadBacterium():
 	onEggLeft = int(onEggLeft)
 	onEggRight = int(onEggRight)
 	onEggForward = int(onEggForward)
+	
+	visual.modulate = color
 
 func _process(delta: float) -> void:
 	visual.frame = (size * 3) + (health - 1)
@@ -447,5 +451,15 @@ func tryMutation():
 		resistant = true
 	if round(rand_range(0.0, 14.0)) == 0.0:
 		resistant = false
+	if round(rand_range(0.0, 1.0)) == 0.0:
+		color.r += rand_range(-0.05, 0.05)
+	if round(rand_range(0.0, 1.0)) == 0.0:
+		color.g += rand_range(-0.05, 0.05)
+	if round(rand_range(0.0, 1.0)) == 0.0:
+		color.b += rand_range(-0.05, 0.05)
+	color.r = clamp(color.r, 0.0, 1.0)
+	color.g = clamp(color.g, 0.0, 1.0)
+	color.b = clamp(color.b, 0.0, 1.0)
+	color.a = 1.0
 	
 	loadBacterium()
