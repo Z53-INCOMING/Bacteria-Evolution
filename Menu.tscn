@@ -129,7 +129,6 @@ margin_top = 4.0
 margin_right = 266.12
 margin_bottom = 18.0
 custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Food Clump Sharpness"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -141,7 +140,6 @@ margin_top = 54.8318
 margin_right = 266.12
 margin_bottom = 68.8318
 custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Food Clump Size"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,7 +151,6 @@ margin_top = 102.611
 margin_right = 266.12
 margin_bottom = 116.611
 custom_fonts/font = ExtResource( 11 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Map Size"
 __meta__ = {
 "_edit_use_anchors_": false
