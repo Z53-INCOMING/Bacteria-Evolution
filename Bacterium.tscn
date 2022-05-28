@@ -31,7 +31,7 @@ hframes = 4
 scale = Vector2( 0.54, 0.54 )
 texture = ExtResource( 2 )
 hframes = 12
-frame = 11
+frame = 5
 
 [node name="basicBrain" type="Sprite" parent="."]
 scale = Vector2( 0.54, 0.54 )
