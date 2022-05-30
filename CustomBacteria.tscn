@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://bacteriaEgg.png" type="Texture" id=1]
 [ext_resource path="res://pixelarrow.png" type="Texture" id=2]
 [ext_resource path="res://bacteria.png" type="Texture" id=3]
 [ext_resource path="res://foodPellet.png" type="Texture" id=4]
 [ext_resource path="res://CustomBacteria.gd" type="Script" id=5]
+[ext_resource path="res://text.tres" type="DynamicFont" id=6]
 
 [node name="CustomBacteria" type="CanvasLayer"]
 pause_mode = 2
@@ -45,6 +46,7 @@ margin_left = 93.0298
 margin_top = 19.0797
 margin_right = 152.03
 margin_bottom = 43.0797
+custom_fonts/font = ExtResource( 6 )
 text = "toxic"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,6 +57,7 @@ margin_left = 145.698
 margin_top = 19.0797
 margin_right = 235.698
 margin_bottom = 43.0797
+custom_fonts/font = ExtResource( 6 )
 text = "oviparous"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -65,6 +68,7 @@ margin_left = 233.473
 margin_top = 19.0797
 margin_right = 323.473
 margin_bottom = 43.0797
+custom_fonts/font = ExtResource( 6 )
 text = "resistant"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -164,6 +168,7 @@ margin_left = 34.5704
 margin_top = 53.2113
 margin_right = 110.57
 margin_bottom = 73.2113
+custom_fonts/font = ExtResource( 6 )
 text = "egg: avoid"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -174,6 +179,7 @@ margin_left = 34.5704
 margin_top = 81.0699
 margin_right = 114.57
 margin_bottom = 101.07
+custom_fonts/font = ExtResource( 6 )
 text = "egg: follow"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -184,6 +190,7 @@ margin_left = 34.5704
 margin_top = 108.329
 margin_right = 114.57
 margin_bottom = 128.329
+custom_fonts/font = ExtResource( 6 )
 text = "egg: nothing"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -194,6 +201,7 @@ margin_left = 206.597
 margin_top = 53.2113
 margin_right = 288.597
 margin_bottom = 73.2113
+custom_fonts/font = ExtResource( 6 )
 text = "food: avoid"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -204,6 +212,7 @@ margin_left = 206.597
 margin_top = 81.0699
 margin_right = 292.597
 margin_bottom = 101.07
+custom_fonts/font = ExtResource( 6 )
 text = "food: follow"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -214,6 +223,7 @@ margin_left = 206.597
 margin_top = 107.177
 margin_right = 292.597
 margin_bottom = 127.177
+custom_fonts/font = ExtResource( 6 )
 text = "food: nothing"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -224,6 +234,7 @@ margin_left = 133.606
 margin_top = 153.0
 margin_right = 185.606
 margin_bottom = 173.0
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
 text = "create"
 __meta__ = {
@@ -235,6 +246,7 @@ margin_left = 124.0
 margin_top = 44.0
 margin_right = 194.0
 margin_bottom = 68.0
+custom_fonts/font = ExtResource( 6 )
 text = "Name"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -274,6 +286,18 @@ margin_bottom = 154.037
 rect_scale = Vector2( 0.5, 0.4 )
 max_value = 1.0
 step = 0.01
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quanity" type="SpinBox" parent="."]
+margin_left = 190.0
+margin_top = 151.0
+margin_right = 264.0
+margin_bottom = 175.0
+min_value = 1.0
+max_value = 50.0
 value = 1.0
 __meta__ = {
 "_edit_use_anchors_": false

@@ -328,7 +328,7 @@ func _process(delta: float) -> void:
 		if position.y < -world.space:
 			position.y += world.space * 2
 		
-		if food >= 30:
+		if food >= 30.0 / (((scale.x - 1.0) / 2.0) + 1.0):
 			if !oviparous:
 				var bacteria = bacteriaScene.instance()
 				bacteria.global_position = global_position

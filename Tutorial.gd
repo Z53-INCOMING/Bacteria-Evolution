@@ -9,8 +9,10 @@ func _process(delta: float) -> void:
 		camera.position.y += 180
 	if Input.is_action_just_pressed("ui_up"):
 		camera.position.y -= 180
-	if camera.position.y > (21 * 180):
-		camera.position.y = 21 * 180
+	if camera.position.y > (28 * 180):
+		camera.position.y = 28 * 180
+	if camera.position.y < 0.0:
+		camera.position.y = 28 * 180
 
 
 func _on_Button_button_down() -> void:

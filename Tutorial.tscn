@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://text.tres" type="DynamicFont" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://bacteriaEgg.png" type="Texture" id=10]
 [ext_resource path="res://bacteriaResistance.png" type="Texture" id=11]
 [ext_resource path="res://foodPellet.png" type="Texture" id=12]
+[ext_resource path="res://pixelarrow.png" type="Texture" id=13]
+[ext_resource path="res://bacteria.png" type="Texture" id=14]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -1134,16 +1136,6 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 12 )
 hframes = 7
 
-[node name="Button" type="Button" parent="."]
-margin_left = 64.0
-margin_top = 3806.0
-margin_right = 233.0
-margin_bottom = 3915.0
-text = "Thats all for now, sorry."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="bacteriaEggToxicOverlay" type="Sprite" parent="."]
 position = Vector2( 105.776, 1917.32 )
 scale = Vector2( 3, 3 )
@@ -1169,6 +1161,1044 @@ frame = 1
 position = Vector2( 277.376, 3521.08 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 6 )
+hframes = 4
+frame = 1
+
+[node name="Label22" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 3781.39
+margin_right = 300.0
+margin_bottom = 3874.39
+custom_fonts/font = ExtResource( 2 )
+text = "Lets talk about their brain."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria4" type="Sprite" parent="."]
+position = Vector2( 139.626, 3929.05 )
+rotation = -1.57079
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+hframes = 5
+frame = 4
+
+[node name="rightCone" type="Polygon2D" parent="."]
+position = Vector2( 154.797, 3870.22 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone" type="Polygon2D" parent="."]
+position = Vector2( 55.3859, 3872.01 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone" type="Polygon2D" parent="."]
+position = Vector2( -731.878, 3622.67 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="bacteriaEgg" type="Sprite" parent="."]
+position = Vector2( 189.971, 3911.9 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg2" type="Sprite" parent="."]
+position = Vector2( 140.383, 3864.52 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg3" type="Sprite" parent="."]
+position = Vector2( 91.2729, 3911.9 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="right" type="Sprite" parent="."]
+position = Vector2( 193.388, 3873.28 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left" type="Sprite" parent="."]
+position = Vector2( 140.991, 3864.7 )
+rotation = 1.58951
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front" type="Sprite" parent="."]
+position = Vector2( 139.875, 3823.36 )
+rotation = -1.58843
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="right2" type="Sprite" parent="."]
+position = Vector2( 190.567, 3912.46 )
+rotation = -3.13541
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left2" type="Sprite" parent="."]
+position = Vector2( 89.5647, 3913.52 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front2" type="Sprite" parent="."]
+position = Vector2( 86.1699, 3867 )
+rotation = -3.13924
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="foodPellet21" type="Sprite" parent="."]
+position = Vector2( 80.1566, 3865.57 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet22" type="Sprite" parent="."]
+position = Vector2( 139.103, 3823.26 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet23" type="Sprite" parent="."]
+position = Vector2( 192.72, 3873.46 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="bacteria5" type="Sprite" parent="."]
+position = Vector2( 139.626, 4108.27 )
+rotation = -1.57079
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+hframes = 5
+frame = 4
+
+[node name="rightCone2" type="Polygon2D" parent="."]
+position = Vector2( 154.797, 4049.44 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone2" type="Polygon2D" parent="."]
+position = Vector2( 55.3859, 4051.22 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone2" type="Polygon2D" parent="."]
+position = Vector2( -731.878, 3801.89 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="bacteriaEgg4" type="Sprite" parent="."]
+position = Vector2( 189.971, 4091.11 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg5" type="Sprite" parent="."]
+position = Vector2( 140.383, 4043.74 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg6" type="Sprite" parent="."]
+position = Vector2( 91.2729, 4091.11 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="right3" type="Sprite" parent="."]
+position = Vector2( 193.388, 4052.49 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left3" type="Sprite" parent="."]
+position = Vector2( 140.991, 4043.91 )
+rotation = 1.58951
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front3" type="Sprite" parent="."]
+position = Vector2( 139.875, 4002.57 )
+rotation = -1.58843
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="right4" type="Sprite" parent="."]
+position = Vector2( 190.567, 4091.67 )
+rotation = -3.13541
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left4" type="Sprite" parent="."]
+position = Vector2( 89.5647, 4092.73 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front4" type="Sprite" parent="."]
+position = Vector2( 86.1699, 4046.21 )
+rotation = -3.13924
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="foodPellet24" type="Sprite" parent="."]
+position = Vector2( 80.1566, 4044.78 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet25" type="Sprite" parent="."]
+position = Vector2( 139.103, 4002.47 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet26" type="Sprite" parent="."]
+position = Vector2( 192.72, 4052.67 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Label23" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 3960.6
+margin_right = 300.0
+margin_bottom = 4053.6
+custom_fonts/font = ExtResource( 2 )
+text = "It has 3 cones. These are their optical sensors. Left, front and right."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria6" type="Sprite" parent="."]
+position = Vector2( 139.626, 4295.34 )
+rotation = -1.57079
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+hframes = 5
+frame = 4
+
+[node name="rightCone3" type="Polygon2D" parent="."]
+position = Vector2( 154.797, 4236.51 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone3" type="Polygon2D" parent="."]
+position = Vector2( 55.3859, 4238.29 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone3" type="Polygon2D" parent="."]
+position = Vector2( -731.878, 3988.96 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="bacteriaEgg7" type="Sprite" parent="."]
+position = Vector2( 189.971, 4278.18 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg8" type="Sprite" parent="."]
+position = Vector2( 140.383, 4230.81 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg9" type="Sprite" parent="."]
+position = Vector2( 91.2729, 4278.18 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="right5" type="Sprite" parent="."]
+position = Vector2( 193.388, 4239.56 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left5" type="Sprite" parent="."]
+position = Vector2( 140.991, 4230.98 )
+rotation = 1.58951
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front5" type="Sprite" parent="."]
+position = Vector2( 139.875, 4189.65 )
+rotation = -1.58843
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="right6" type="Sprite" parent="."]
+position = Vector2( 190.567, 4278.74 )
+rotation = -3.13541
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left6" type="Sprite" parent="."]
+position = Vector2( 89.5647, 4279.8 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front6" type="Sprite" parent="."]
+position = Vector2( 86.1699, 4233.28 )
+rotation = -3.13924
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="foodPellet27" type="Sprite" parent="."]
+position = Vector2( 80.1566, 4231.86 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet28" type="Sprite" parent="."]
+position = Vector2( 139.103, 4189.54 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet29" type="Sprite" parent="."]
+position = Vector2( 192.72, 4239.74 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Label24" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 4147.67
+margin_right = 300.0
+margin_bottom = 4240.67
+custom_fonts/font = ExtResource( 2 )
+text = "They can only see 4 \"colors\" in their cones. Nothing, food, egg, and food and egg."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria7" type="Sprite" parent="."]
+position = Vector2( 139.626, 4474.51 )
+rotation = -1.57079
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+hframes = 5
+frame = 4
+
+[node name="rightCone4" type="Polygon2D" parent="."]
+position = Vector2( 154.797, 4415.68 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone4" type="Polygon2D" parent="."]
+position = Vector2( 55.3859, 4417.46 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone4" type="Polygon2D" parent="."]
+position = Vector2( -731.878, 4168.13 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="bacteriaEgg10" type="Sprite" parent="."]
+position = Vector2( 189.971, 4457.35 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg11" type="Sprite" parent="."]
+position = Vector2( 140.383, 4409.98 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg12" type="Sprite" parent="."]
+position = Vector2( 91.2729, 4457.35 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="right7" type="Sprite" parent="."]
+position = Vector2( 193.388, 4418.73 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left7" type="Sprite" parent="."]
+position = Vector2( 140.991, 4410.15 )
+rotation = 1.58951
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front7" type="Sprite" parent="."]
+position = Vector2( 139.875, 4368.82 )
+rotation = -1.58843
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="right8" type="Sprite" parent="."]
+position = Vector2( 190.567, 4457.91 )
+rotation = -3.13541
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left8" type="Sprite" parent="."]
+position = Vector2( 89.5647, 4458.97 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front8" type="Sprite" parent="."]
+position = Vector2( 86.1699, 4412.45 )
+rotation = -3.13924
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="foodPellet30" type="Sprite" parent="."]
+position = Vector2( 80.1566, 4411.03 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet31" type="Sprite" parent="."]
+position = Vector2( 139.103, 4368.71 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet32" type="Sprite" parent="."]
+position = Vector2( 192.72, 4418.91 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Label25" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 4326.84
+margin_right = 300.0
+margin_bottom = 4419.84
+custom_fonts/font = ExtResource( 2 )
+text = "As you can see there are 6 arrows. There is food over half of them, and egg under half of them."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria8" type="Sprite" parent="."]
+position = Vector2( 139.626, 4658.46 )
+rotation = -1.57079
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+hframes = 5
+frame = 4
+
+[node name="rightCone5" type="Polygon2D" parent="."]
+position = Vector2( 154.797, 4599.63 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone5" type="Polygon2D" parent="."]
+position = Vector2( 55.3859, 4601.41 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone5" type="Polygon2D" parent="."]
+position = Vector2( -731.878, 4352.08 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="bacteriaEgg13" type="Sprite" parent="."]
+position = Vector2( 189.971, 4641.31 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg14" type="Sprite" parent="."]
+position = Vector2( 140.383, 4593.93 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg15" type="Sprite" parent="."]
+position = Vector2( 91.2729, 4641.3 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="right9" type="Sprite" parent="."]
+position = Vector2( 193.388, 4602.69 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left9" type="Sprite" parent="."]
+position = Vector2( 140.991, 4594.11 )
+rotation = 1.58951
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front9" type="Sprite" parent="."]
+position = Vector2( 139.875, 4552.77 )
+rotation = -1.58843
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="right10" type="Sprite" parent="."]
+position = Vector2( 190.567, 4641.87 )
+rotation = -3.13541
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left10" type="Sprite" parent="."]
+position = Vector2( 89.5647, 4642.93 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front10" type="Sprite" parent="."]
+position = Vector2( 86.1699, 4596.41 )
+rotation = -3.13924
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="foodPellet33" type="Sprite" parent="."]
+position = Vector2( 80.1566, 4594.98 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet34" type="Sprite" parent="."]
+position = Vector2( 139.103, 4552.67 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet35" type="Sprite" parent="."]
+position = Vector2( 192.72, 4602.87 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Label26" type="Label" parent="."]
+modulate = Color( 0.439216, 0.439216, 0.439216, 1 )
+margin_left = 7.0
+margin_top = 4510.8
+margin_right = 300.0
+margin_bottom = 4619.8
+custom_fonts/font = ExtResource( 2 )
+text = "You can probably already guess what that means, but basically to figure out how their brain works you take the position of the arrow and say \"Well since there is an egg under the front arrow that means that they do (arrow direction) when there is an egg in front of them.\""
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria9" type="Sprite" parent="."]
+position = Vector2( 139.626, 4834.6 )
+rotation = -1.57079
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+hframes = 5
+frame = 4
+
+[node name="rightCone6" type="Polygon2D" parent="."]
+position = Vector2( 154.797, 4775.77 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( 5.22479, -32.4897, -12.0683, 1.34617, -8.48688, 9.25941, 10.3071, 15.8765 )
+
+[node name="leftCone6" type="Polygon2D" parent="."]
+position = Vector2( 55.3859, 4777.55 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+offset = Vector2( 11.7016, 9.45887 )
+polygon = PoolVector2Array( -5.87161, -32.4904, 11.8494, 0.873566, 8.38599, 9.12799, -10.6626, 14.7849 )
+
+[node name="frontCone6" type="Polygon2D" parent="."]
+position = Vector2( -731.878, 4528.22 )
+scale = Vector2( 3, 3 )
+color = Color( 1, 0.141176, 0, 1 )
+polygon = PoolVector2Array( 269.691, 59.4136, 310.515, 59.0901, 293.241, 93.1856, 287.935, 93.1209 )
+
+[node name="bacteriaEgg16" type="Sprite" parent="."]
+position = Vector2( 189.971, 4817.45 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg17" type="Sprite" parent="."]
+position = Vector2( 140.383, 4770.07 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg18" type="Sprite" parent="."]
+position = Vector2( 91.2729, 4817.44 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="right11" type="Sprite" parent="."]
+position = Vector2( 193.388, 4778.83 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left11" type="Sprite" parent="."]
+position = Vector2( 140.991, 4770.25 )
+rotation = 1.58951
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front11" type="Sprite" parent="."]
+position = Vector2( 139.875, 4728.91 )
+rotation = -1.58843
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="right12" type="Sprite" parent="."]
+position = Vector2( 190.567, 4818.01 )
+rotation = -3.13541
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="left12" type="Sprite" parent="."]
+position = Vector2( 89.5647, 4819.06 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="front12" type="Sprite" parent="."]
+position = Vector2( 86.1699, 4772.55 )
+rotation = -3.13924
+scale = Vector2( 3, 3 )
+texture = ExtResource( 13 )
+hframes = 2
+
+[node name="foodPellet36" type="Sprite" parent="."]
+position = Vector2( 80.1566, 4771.12 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 2
+
+[node name="foodPellet37" type="Sprite" parent="."]
+position = Vector2( 139.103, 4728.81 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+frame = 4
+
+[node name="foodPellet38" type="Sprite" parent="."]
+position = Vector2( 192.72, 4779.01 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+hframes = 7
+
+[node name="Label27" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 4686.94
+margin_right = 300.0
+margin_bottom = 4795.94
+custom_fonts/font = ExtResource( 2 )
+text = "Hopefully that makes sense. Lets read the left food one. It says \"When I see food on my left, I turn left.\" If there's a dot and not an arrow, that means do nothing."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label28" type="Label" parent="."]
+margin_left = 7.55402
+margin_top = 4864.46
+margin_right = 300.554
+margin_bottom = 4925.46
+custom_fonts/font = ExtResource( 2 )
+text = "One last thing! Color. Color is a herreditary gene that mutates occasionally. Its only used to easily differentiate species, who owns which eggs and genetic drift."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label29" type="Label" parent="."]
+margin_left = 86.0
+margin_top = 5024.0
+margin_right = 198.0
+margin_bottom = 5038.0
+custom_fonts/font = ExtResource( 2 )
+text = "Is an ancestor of:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label30" type="Label" parent="."]
+margin_left = 203.0
+margin_top = 4953.0
+margin_right = 299.0
+margin_bottom = 4967.0
+custom_fonts/font = ExtResource( 2 )
+text = "Same Species"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 5103.73
+margin_right = 233.0
+margin_bottom = 5212.73
+custom_fonts/font = ExtResource( 2 )
+text = "Tutorial Completed."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bacteria30" type="Sprite" parent="."]
+modulate = Color( 0.756863, 0.0588235, 0.0588235, 1 )
+position = Vector2( 152.123, 4935.12 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria31" type="Sprite" parent="."]
+modulate = Color( 0.678431, 1, 0.992157, 1 )
+position = Vector2( 133.507, 4934.67 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="Line2D18" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 4.70361, 4999.41, 16.9269, 5014.25 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D26" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 78.4991, 4986.5, 82.6963, 4996.79 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D27" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 108.929, 4981.05, 109.348, 4996.99 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D28" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 145.864, 4982.51, 139.148, 4997.83 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D29" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 145.444, 5024.28, 137.469, 5013.78 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D30" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 122.779, 5033.93, 114.175, 5016.09 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D31" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 94.2385, 5036.03, 105.151, 5015.46 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D32" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 62.9696, 5021.97, 80.5977, 5014.41 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D24" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 4.70361, 4999.41, 3.52136, 5005.58 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D25" type="Line2D" parent="."]
+position = Vector2( 135.071, -47.5601 )
+points = PoolVector2Array( 4.70361, 4999.41, 11.403, 5000.19 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D21" type="Line2D" parent="."]
+position = Vector2( 94.2328, -45.3525 )
+points = PoolVector2Array( 18.8935, 5004.47, -5.44875, 5005.08 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D22" type="Line2D" parent="."]
+position = Vector2( 94.2328, -45.3525 )
+points = PoolVector2Array( 18.8935, 5004.47, 8.07475, 4996.36 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D23" type="Line2D" parent="."]
+position = Vector2( 94.2328, -45.3525 )
+points = PoolVector2Array( 18.8935, 5004.47, 9.87788, 5012.89 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D20" type="Line2D" parent="."]
+position = Vector2( 46.1579, -25.9609 )
+points = PoolVector2Array( 0.0969543, 4993.48, 0.405602, 4993.85 )
+width = 4.0
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="bacteria16" type="Sprite" parent="."]
+modulate = Color( 0, 0.321569, 1, 1 )
+position = Vector2( 243.866, 4921.67 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria17" type="Sprite" parent="."]
+modulate = Color( 0, 0.372549, 0.807843, 1 )
+position = Vector2( 283.55, 4924.31 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria18" type="Sprite" parent="."]
+modulate = Color( 0.431373, 0.313726, 1, 1 )
+position = Vector2( 259.835, 4998.94 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria28" type="Sprite" parent="."]
+modulate = Color( 0.156863, 0.545098, 1, 1 )
+position = Vector2( 284.833, 4986 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria21" type="Sprite" parent="."]
+modulate = Color( 0.188235, 0.121569, 0.513726, 1 )
+position = Vector2( 211.343, 4927.63 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria24" type="Sprite" parent="."]
+modulate = Color( 0, 1, 0.133333, 1 )
+position = Vector2( 78.3417, 5029.73 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria25" type="Sprite" parent="."]
+modulate = Color( 0.921569, 1, 0, 1 )
+position = Vector2( 206.785, 5029.98 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria22" type="Sprite" parent="."]
+modulate = Color( 0.521569, 0, 1, 1 )
+position = Vector2( 188.916, 4976.82 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria32" type="Sprite" parent="."]
+modulate = Color( 0.756863, 1, 0, 1 )
+position = Vector2( 173.706, 4934.49 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria23" type="Sprite" parent="."]
+modulate = Color( 0.521569, 0, 1, 1 )
+position = Vector2( 221.624, 4998.71 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteriaEgg19" type="Sprite" parent="."]
+modulate = Color( 0.678431, 1, 0.992157, 1 )
+position = Vector2( 146.691, 4980.76 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg20" type="Sprite" parent="."]
+modulate = Color( 0.678431, 1, 0.992157, 1 )
+position = Vector2( 159.746, 4977.88 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteria33" type="Sprite" parent="."]
+position = Vector2( 23.7766, 4936.64 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteria34" type="Sprite" parent="."]
+position = Vector2( 46.6284, 4936.2 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="Line2D19" type="Line2D" parent="."]
+position = Vector2( 28.0945, -46.0376 )
+points = PoolVector2Array( 13.8046, 4997.07, 15.569, 4994.81, 18.1098, 4994.11, 20.8624, 4994.81, 22.3445, 4996.86, 21.921, 4999.54, 18.5333, 5003.92, 18.3547, 5008.01 )
+width = 3.0
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="bacteria35" type="Sprite" parent="."]
+position = Vector2( 66.7294, 4936.01 )
+rotation = -1.57079
+texture = ExtResource( 14 )
+hframes = 5
+frame = 3
+
+[node name="bacteriaEgg21" type="Sprite" parent="."]
+position = Vector2( 39.7146, 4982.28 )
+texture = ExtResource( 10 )
+hframes = 4
+frame = 1
+
+[node name="bacteriaEgg22" type="Sprite" parent="."]
+position = Vector2( 52.7697, 4979.4 )
+texture = ExtResource( 10 )
 hframes = 4
 frame = 1
 

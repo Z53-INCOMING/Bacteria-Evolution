@@ -138,7 +138,6 @@ __meta__ = {
 
 [node name="name" type="Label" parent="UI"]
 visible = false
-modulate = Color( 0, 0, 0, 1 )
 margin_left = 239.465
 margin_top = 107.678
 margin_right = 301.465
@@ -546,10 +545,10 @@ __meta__ = {
 }
 
 [node name="markerColor" type="ColorPicker" parent="Camera2D/UI/menu"]
-margin_left = 97.9997
-margin_top = 62.8428
-margin_right = 582.0
-margin_bottom = 517.843
+margin_left = 106.0
+margin_top = 70.8428
+margin_right = 590.0
+margin_bottom = 525.843
 rect_scale = Vector2( 0.15, 0.15 )
 color = Color( 0, 0, 0, 0.329412 )
 hsv_mode = true
