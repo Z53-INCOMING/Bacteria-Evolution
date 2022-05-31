@@ -1,9 +1,9 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://World.gd" type="Script" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://Helvetica.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://bacteria.png" type="Texture" id=4]
+[ext_resource path="res://bacteriaFinal.png" type="Texture" id=4]
 [ext_resource path="res://pixelarrow.png" type="Texture" id=5]
 [ext_resource path="res://Axises.gd" type="Script" id=6]
 [ext_resource path="res://foodPellet.png" type="Texture" id=7]
@@ -15,6 +15,7 @@
 [ext_resource path="res://OrangePortal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://markerColor.gd" type="Script" id=14]
 [ext_resource path="res://UndoButton.png" type="Texture" id=15]
+[ext_resource path="res://bacteriaBasicBrain.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 11
@@ -391,8 +392,15 @@ __meta__ = {
 position = Vector2( 292.054, 59.4918 )
 rotation = -1.57079
 texture = ExtResource( 4 )
-hframes = 5
-frame = 2
+hframes = 12
+frame = 5
+
+[node name="brain" type="Sprite" parent="Camera2D/UI/visible"]
+position = Vector2( 292.054, 59.492 )
+rotation = -1.5708
+texture = ExtResource( 16 )
+hframes = 4
+frame = 1
 
 [node name="rightCone" type="Polygon2D" parent="Camera2D/UI/visible"]
 position = Vector2( 296.02, 39.9594 )

@@ -28,6 +28,12 @@ onready var originalTextures = $UI/menu/originalTextures
 onready var chat = $UI/menu/chat
 onready var wrap = $UI/menu/wrap
 
+onready var bacteria = $UI/visible/bacteria
+onready var brain = $UI/visible/brain
+
+onready var brainTexture = preload("res://bacteriaBrain.png")
+onready var basicBrainTexture = preload("res://bacteriaBasicBrain.png")
+
 onready var childrenLabel = $UI/visible/childCount
 onready var ageLabel = $UI/visible/age
 onready var foodLabel = $UI/visible/food
@@ -113,6 +119,18 @@ func _process(delta: float) -> void:
 			colorCone(Lcone, following.left, following.leftEgg)
 			colorCone(Rcone, following.right, following.rightEgg)
 			colorCone(Fcone, following.forward, following.forwardEgg)
+			
+			if following.smart:
+				brain.texture = brainTexture
+				brain.modulate = Color.white
+			else:
+				brain.texture = basicBrainTexture
+				brain.modulate = following.color
+			if following.basicBrain.visible:
+				brain.visible = true
+			else:
+				brain.visible = false
+			bacteria.modulate = following.color
 			
 			left2.frame = 0
 			match following.onEggLeft:
